@@ -16,7 +16,7 @@
 
 ---
 ::: tip
-this page is created by :
+this page is created using :
 [github-profile-readme-generator](https://github.com/rahuldkjain/github-profile-readme-generator)
 :::
 

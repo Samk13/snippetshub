@@ -5,7 +5,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: '<Snippetshub 🐱‍👤 />',
+  title: '<SnippetsHub 🐱‍👤 />',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -25,7 +25,9 @@ module.exports = {
   theme: 'vuepress-theme-default-vue-a11y', // or 'default-vue-a11y'
     // dark mood config end
 
+
   themeConfig: {
+    logo: 'https://simpleicons.org/icons/mixer.svg',
     // dark mood config start 2-2
     colorMode: {
       enabled: true,
