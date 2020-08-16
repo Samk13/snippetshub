@@ -14,4 +14,11 @@ This is a tip
 ## test if it will show
 
 jklsahdfglöjkashdfg sdlöfg hjskldhjf göäklshd jfgköl
+```js {2}
+// fkljhasd f
+let a = 10
+function () {
+    return 'asjdajsd'
+}
+```
 ##
