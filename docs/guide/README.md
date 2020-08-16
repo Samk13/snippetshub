@@ -20,6 +20,6 @@ this page is created by :
 [github-profile-readme-generator](https://github.com/rahuldkjain/github-profile-readme-generator)
 :::
 
-::: warning
-If you didn't notice already, you can switch to color mood of this site on the uper left corner 🌛
+::: tip One more thing
+If you didn't notice already, you can switch the color mood of this site on the uper left corner 🌛🌞
 :::
