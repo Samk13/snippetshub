@@ -53,8 +53,8 @@ module.exports = {
         link: '/config/'
       },
       {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
+        text: 'Sam Arbid',
+        link: 'https://github.com/Samk13'
       }
     ],
     sidebar: {

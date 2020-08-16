@@ -5,11 +5,11 @@ tagline: Often when I get stuck while coding and find solution I write what i ha
 actionText: Read more →
 actionLink: /guide/
 features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
+- title: if you get stuck
+  details: you can write about it here and how you solve it
+- title: usful information for everyone
+  details: no matter what is your level, you will find somthing usful for you here
+- title: Save time
+  details: by contributing what you ve been stuck on and how you solve it your future self will thank you to save your time as much as other will do
 footer: Made by Sam Arbid with ❤️
 ---
