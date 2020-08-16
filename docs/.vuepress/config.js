@@ -21,18 +21,26 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
+      // dark mood config start 1-2
+  theme: 'vuepress-theme-default-vue-a11y', // or 'default-vue-a11y'
+    // dark mood config end
 
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
   themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
+    // dark mood config start 2-2
+    colorMode: {
+      enabled: true,
+      visible: true,
+      props: {
+        // e.g. color modes
+        modes: [ 'light', 'dark', 'system', 'sepia' ]
+      }
+    },
+    // dark mood config end
+    // repo: '',
+    // editLinks: false,
+    // docsDir: '',
+    // editLinkText: '',
+    // lastUpdated: false,
     nav: [
       {
         text: 'Guide',
