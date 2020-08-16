@@ -13,6 +13,8 @@ This is a tip
 >
 ## test if it will show
 
+:electric_plug:
+
 jklsahdfglöjkashdfg sdlöfg hjskldhjf göäklshd jfgköl
 ```js {2}
 // fkljhasd f
