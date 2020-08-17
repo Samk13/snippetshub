@@ -7,6 +7,7 @@ install:
 
 script:
   - yarn build # npm run docs:build
+  - cd docs/.vuepress/dist
   - touch .nojekyll
 
 deploy:
