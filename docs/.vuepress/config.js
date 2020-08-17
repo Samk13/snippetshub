@@ -31,29 +31,51 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
+        text: 'content',
+        items: [
+          {
+            text: 'Guide',
+            link: '/guide/',
+          },
+          {
+            text: 'vscode',
+            link: '/vscode-page/',
+          },
+          {
+            text: 'Config',
+            link: '/config/'
+          }
+        ]
       },
       {
         text: 'Sam Arbid',
         link: 'https://github.com/Samk13'
       }
     ],
+    smoothScroll: true,
+    displayAllHeaders: true ,
+    sidebarDepth: 3,
     sidebar: {
       '/guide/': [
         {
-          title: 'Guide',
-          collapsable: false,
+          title: 'General',
+          collapsable: true,
           children: [
             '',
             'using-vue',
           ]
         }
       ],
+      '/vscode-page/': [
+        {
+          title: 'VSCode',
+          collapsable: true,
+          children: [
+            '',
+            'vscode'
+          ]
+        }
+      ]
     }
   },
 
