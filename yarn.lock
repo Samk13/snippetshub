@@ -1160,7 +1160,7 @@
   dependencies:
     "@vuepress/shared-utils" "1.5.3"
 
-"@vuepress/plugin-search@1.5.3":
+"@vuepress/plugin-search@1.5.3", "@vuepress/plugin-search@^1.5.3":
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.5.3.tgz#c2a93fceab3830e4f07ba6ac68e3bfc27c7d908d"
   integrity sha512-LCqqgKQ1I26oWE3N5OKeZMV0xtWv2WURI+bhxirM1xL0OpCQyqwk/rLHWBto+j4Y0ScxgXiRxa9Zs2E6eY6Dnw==
