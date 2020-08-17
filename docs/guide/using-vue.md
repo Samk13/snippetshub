@@ -139,9 +139,64 @@ server.listen(port,hostname,()=>{
 
 ```
 ##
+<br>
 
+## github pages not updating after push
+:::danger Github pages is not updating
+>in vuepress
+:::
+long story short :
+
+:::tip possible solution
+check in `docs/.vuepress/config.js`
+ ```json
+ base: "/snippetshub/",
+ ```
+ more info : [vuepress deploy](https://vuepress.vuejs.org/guide/deploy.html#github-pages)
+:::
 ##
-github pages build is not updating
+
+## other solution is adding `.nojekyll` file in the build folder
+When publishing an Antora site to GitHub Pages, it's necessary to an empty file to the root directory named .nojekyll. The existence of this file tells GitHub Pages not to run the published files through Jekyll.
+You can add it manually, But if you are using travis for automating the build you can do that by
+adding this 2 lines in the script section
+
+```yml
+script:
+  - yarn build # npm run docs:build
+  - cd docs/.vuepress/dist
+  - touch .nojekyll
+```
+you can cd into a folder using travis by adding the `- cd <YOUR_PATH>`, and creating new file `- touch <FILE_NAME>`like you do in the termenial basically
+
+
 
 add a file
+##
+
+## Travis
+
+my travis file for my vuepress app
+```yml
+language: node_js
+node_js:
+  - lts/*
+
+install:
+  - yarn install # npm ci
+
+script:
+  - yarn build # npm run docs:build
+  - cd docs/.vuepress/dist
+  - touch .nojekyll
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master
+```
 ##
