@@ -8,15 +8,16 @@ Task:"Complete the function in the editor below by returning a RegExp object, , 
 > solution
 ```js
  function regexVar() {
-    /*
-        * Declare a RegExp object variable named 're'
-        * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u})
-        */
-    let re = /^(a|e|i|o|u).*\1$/
-    /*
-        * Do not remove the return statement
-        */
-    return re;
+/*
+    * Declare a RegExp object variable named 're'
+    * It must match a string that starts and ends with
+    * the same vowel (i.e., {a, e, i, o, u})
+    */
+let re = /^(a|e|i|o|u).*\1$/
+/*
+    * Do not remove the return statement
+    */
+return re;
 }
 ```
 
@@ -177,5 +178,22 @@ deploy:
 ```
 ## Adding travis to your project
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/BFpSD2eoXUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- <iframe title="Adding travis" width="100%" height="500" src="https://www.youtube.com/embed/BFpSD2eoXUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
+<iframe title="Adding travis" width="100%" height="500" src="https://www.youtube-nocookie.com/embed/BFpSD2eoXUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Dark mood in vue press
+I am using the work in progress plugin now `vuepress-theme-default-vue-a11y`
+Yes I know that it make things a bit slower and make Axe isses in the console, but it's fine for now.
+
+## cross site cookies
+
+<iframe title="SameSite Cookies - Chrome Update" width="100%" height="500" src="https://www.youtube-nocookie.com/embed/GPz7onXjP_4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+you should add `title="SameSite Cookies - Chrome Update"` after adding a youtube emded video so the axe issues will not complain in the console
+
+:::warning Youtube stuff
+- in youtube embed videos: replace `https://www.youtube.com/embed/...` to `https://www.youtube-nocookie.com/embed/...`
+so your console will not complain about cross site cookies
+- or when you grab youtube links you press share => Embed => check: Enable privacy-enhanced mode.
+:::
