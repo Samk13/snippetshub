@@ -1,11 +1,11 @@
 const { description } = require('../../package')
 
 module.exports = {
-  base: "/snippetshub.io/",
+  base: "/snippetshub/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: '//<SnippetsHub 🐱‍👤 />//',
+  title: 'SnippetsHub 🐱‍👤',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
