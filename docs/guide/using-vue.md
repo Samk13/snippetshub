@@ -2,13 +2,10 @@
 tags: ["js", "javascript"]
 ---
 # questions from hacker rank
-
 ## Regular Expressions
 In this challenge, we use a Regular Expression to evaluate a string. Check out the attached tutorial for more details",
 Task:"Complete the function in the editor below by returning a RegExp object, , that matches any string  that begins and ends with the same vowel. Recall that the English vowels are a, e, i, o, and u.
-
 > solution
-
 ```js
  function regexVar() {
     /*
@@ -22,7 +19,6 @@ Task:"Complete the function in the editor below by returning a RegExp object, , 
     return re;
 }
 ```
-##
 
 ## extract certain chars from a string
 In this challenge, we practice looping over the characters of string. Check out the attached tutorial for more details.",
@@ -53,10 +49,6 @@ function vowelsAndConsonants(s) {
     return result.forEach(i => console.log(i))
 }
 ```
-##
-
-
-
 ## Reverse a string
 In this challenge, we learn about strings and exceptions. Check out the attached tutorials for more details.<br>
 Task:<br>Complete the reverseString function; it has one parameter, . You must perform the following actions:
@@ -79,12 +71,9 @@ function reverseString(s) {
         console.log(s)
     }}
 ```
-##
-
 ## class inheritance
 In this challenge, we practice implementing inheritance and use JavaScript prototypes to add a new method to an existing prototype. Check out the attached Classes tutorial to refresh what we've learned about these topics.",
 Task:`We provide the implementation for a Rectangle class in the editor. Perform the following tasks:
-
 Add an area method to Rectangle's prototype.
 Create a Square class that satisfies the following:
 It is a subclass of Rectangle.
@@ -100,25 +89,23 @@ class Rectangle {
         this.h = h;
     }
 }
-
 /*
-    *  Write code that adds an 'area' method to the Rectangle class' prototype
-    */
-    Rectangle.prototype.area = function(){
-        return this.w * this.h
-    }
+*  Write code that adds an 'area' method to the Rectangle class' prototype
+*/
+Rectangle.prototype.area = function(){
+    return this.w * this.h
+}
 /*
-    * Create a Square class that inherits from Rectangle and implement its class constructor
-    */
-    class Square extends Rectangle {
-        constructor(s){
-            super(s)
-            this.h = s
-            this.w = s
-        }
+* Create a Square class that inherits from Rectangle and implement its class constructor
+*/
+class Square extends Rectangle {
+    constructor(s){
+        super(s)
+        this.h = s
+        this.w = s
     }
+}
 ```
-##
 
 ## create Nodejs server
 
@@ -138,13 +125,9 @@ server.listen(port,hostname,()=>{
 })
 
 ```
-##
-<br>
-
 ## github pages not updating after push
-:::danger Github pages is not updating
 >in vuepress
-:::
+
 long story short :
 
 :::tip possible solution
@@ -154,7 +137,6 @@ check in `docs/.vuepress/config.js`
  ```
  more info : [vuepress deploy](https://vuepress.vuejs.org/guide/deploy.html#github-pages)
 :::
-##
 
 ## other solution is adding `.nojekyll` file in the build folder
 When publishing an Antora site to GitHub Pages, it's necessary to an empty file to the root directory named .nojekyll. The existence of this file tells GitHub Pages not to run the published files through Jekyll.
@@ -169,13 +151,7 @@ script:
 ```
 you can cd into a folder using travis by adding the `- cd <YOUR_PATH>`, and creating new file `- touch <FILE_NAME>`like you do in the termenial basically
 
-
-
-add a file
-##
-
 ## Travis
-
 my travis file for my vuepress app
 ```yml
 language: node_js
@@ -199,4 +175,7 @@ deploy:
   on:
     branch: master
 ```
-##
+## Adding travis to your project
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/BFpSD2eoXUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
