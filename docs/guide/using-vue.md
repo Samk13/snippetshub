@@ -197,3 +197,7 @@ you should add `title="SameSite Cookies - Chrome Update"` after adding a youtube
 so your console will not complain about cross site cookies
 - or when you grab youtube links you press share => Embed => check: Enable privacy-enhanced mode.
 :::
+
+## How to Automate Tests and Slack Notifications with Github Actions
+
+<iframe title=" Automate Tests and Slack Notifications with Github Actions" width="100%" height="512" src="https://www.youtube-nocookie.com/embed/1n-jHHNSoTw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
