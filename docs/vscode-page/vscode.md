@@ -1,4 +1,4 @@
-# Mt VScode settings
+# My VScode settings
 
 ## here is my current vscode settings:
 

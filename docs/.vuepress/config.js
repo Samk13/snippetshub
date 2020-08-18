@@ -23,6 +23,12 @@ module.exports = {
         modes: [ 'light', 'dark', 'system', 'sepia' ]
       }
     },
+    axe: {
+      enabled: true,
+      options: {
+        clearConsoleOnUpdate: true
+      },
+    },
     // dark mood config end
     // repo: 'Samk13/snippetshub',
     editLinks: false,
@@ -38,7 +44,7 @@ module.exports = {
             link: '/guide/',
           },
           {
-            text: 'vscode',
+            text: 'Editors',
             link: '/vscode-page/',
           },
           {
@@ -72,7 +78,8 @@ module.exports = {
           collapsable: true,
           children: [
             '',
-            'vscode'
+            'vscode',
+            'vim'
           ]
         }
       ]
