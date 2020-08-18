@@ -69,6 +69,7 @@ module.exports = {
           children: [
             '',
             'using-vue',
+            'docker',
           ]
         }
       ],
