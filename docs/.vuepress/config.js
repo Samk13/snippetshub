@@ -70,6 +70,7 @@ module.exports = {
             '',
             'using-vue',
             'docker',
+            'interviewtests'
           ]
         }
       ],
