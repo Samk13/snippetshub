@@ -2,12 +2,7 @@
 
  <img src="https://devicons.github.io/devicon/devicon.git/icons/docker/docker-original-wordmark.svg" alt="docker" width="100" height="100"/>
 
-
-
-You can follow along this 101 tutorial[](http://localhost/tutorial/)
-
 `docker run -d -p 80:80 docker/getting-started`
-
 
 Building the App's Container Image¶
 In order to build the application, we need to use a `Dockerfile`. A Dockerfile is simply a text-based script of instructions that is used to create a container image. If you've created Dockerfiles before, you might see a few flaws in the Dockerfile below. But, don't worry! We'll go over them.

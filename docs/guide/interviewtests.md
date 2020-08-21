@@ -139,3 +139,11 @@ const markdown = (str) => {
   }
 }
 ```
+
+I got rejected with this reply :
+
+> some of the functions could have been written both less verbose, more performant, and more readable. For instance, the functional (filter/reduce) solution to Q2 is very wasteful in terms of CPU and memory, and the duplication in Q3 should have been generalized. We also lacked comments or other info that explained the implementation choices. Maybe you considered the imperative solution in Q2 and decided against it for a good reason? We were unable to tell.
+
+Personally I love map, reduce, filter, find and I have been using them for a while now. They helped me write clean, short, fast and straight to the point code which aligned with my thought process. I use a for loop "the faster choice" when I have no choice left. As far as you didn't mention, performance optimization is required.
+
+So guys if you feel like you have better way solving these question just commit your solution and I will add it here

@@ -1,7 +1,106 @@
 ---
 tags: ["js", "javascript"]
 ---
+
+# JavaScript
+
+JavaScript is often said to be the easiest language to start with and the hardest to master. I couldn’t agree more. This is because JavaScript is a really old & a really flexible language. It is full of mysterious syntaxes and obsolete features. I’ve been working with JavaScript for years now and to date, every now and then, I still stumble upon some hidden syntax or tricks that I never knew existed.
+
+## Constructor Brackets are optional
+
+Yes, the parentheses we add after class name while invoking a constructor — completely optional! 😮 (Provided that you don’t need to pass any arguments to the Constructor)
+Both the code styles below are considered to be valid JS syntax, and will give you exact same results!
+
+```js
+// Constructor with brackets
+const date = new Date()
+const month = new Date().getMonth()
+const myInstance = new MyClass()
+
+// Constructor without brackets
+const date = new Date
+const month = (new date).getMonth()
+const myInstance = new MyClass
+```
+
+## IIFE Brackets can be skipped
+
+The syntax for IIFE (Immediately Invoked Functional Expression) was always a bit odd for me.
+What’s up will all the brackets?
+Well turns out those extra brackets are needed just to tell the JavaScript parser, that the upcoming code is a Functional Expression and not a Function. Knowing this, one can imagine, there are many ways to skip those
+extra brackets & still make a valid IIFE.
+
+```js
+// IIFE
+(function () {
+    console.log('Old school')
+})()
+
+// Cool IIFE called
+void function () {
+    console.log('cool')
+}()
+```
+
+## + Plus Operator
+
+Ever wanted to quickly convert a string to a number?
+Just prefix the string with + operator.
+Plus operator also works for negative, octal, hexadecimal, exponential values. What’s more, it even converts a Date or Moment.js object to the timestamp!
+
+```js
++ '13.11'  // return  13.11
++ '-13'    // return -13
++ '0xFF'    // return 255
++true       // return 1
++ '123e-5'  // return 0.00123
++false      //return 0
++'Infinity' // return Infinity
++'1,234'    // return NaN
+```
+
+## !! Bang Bang Operator
+
+
+Okay, technically its not a separate JavaScript operator. It’s just the JavaScript negation operator used twice.
+But Bang Bang sounds so cool! Bang Bang or Double Bang is a neat trick to convert any expression to a Boolean value.
+If the expression is a truthy value, it return true; otherwise it returns false.
+
+```js
+!!null  // false
+!!undefined // false
+!!true // true
+!!""  // false
+!!" " // true
+!!0 // false
+!!1 // true
+!![] // true
+!!{} // true
+```
+
+
+## ~ Tilde Operator
+Let’s face it — Nobody cares about the Bitwise operators.
+When are we ever gonna use it!
+Well, there is an everyday use case for the Tilde or Bitwise NOT operator.
+Turns out when used with a number, the Tilde operator effective does
+~N => -(N+1) . This expression evaluates to “0” only when N == -1
+We can leverage this by putting ~ in front of theindexOf(...) function to do a boolean check if an item exists in a String or an Array.
+
+```js
+let user = 'Sam Arbid'
+
+if (~user.indexOf('Arbid')) {
+    console.log('access denied')
+} else {
+    console.log('accrss granted')
+}
+```
+:::tip
+ES6 & ES7 added a new .includes() method in String & Array, respectively. Definitely, it’s a more cleaner way than tilde operator to check if an item exists in an Array or a String.
+:::
 # questions from hacker rank
+
 ## Regular Expressions
 In this challenge, we use a Regular Expression to evaluate a string. Check out the attached tutorial for more details",
 Task:"Complete the function in the editor below by returning a RegExp object, , that matches any string  that begins and ends with the same vowel. Recall that the English vowels are a, e, i, o, and u.
