@@ -85,3 +85,41 @@ Now try your push command again. If you're copying the value from Docker Hub, yo
 
 
 `docker push YOUR-USER-NAME/getting-started`
+
+# Fastest way to Install Python 3.7 in docker container to your local machine
+
+this [youtube video](https://www.youtube.com/watch?v=SR95WmOSm0c) will explain it step by step
+
+first go to [hub.docker](https://hub.docker.com/_/python)
+
+make new folder and create `Dockerfile`
+
+``` docker
+FROM python:3
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD [ "python", "./your-daemon-or-script.py" ]
+```
+
+then you build the image by writhing in the terminal:
+
+```bash
+# build image
+λ docker build -t python-container .
+
+# list files inside the container
+λ docker run -it python-container ls
+
+# run bash from inside the container
+λ docker run -it python-container bash
+
+# you can ESC from it by typing
+exit
+
+```
