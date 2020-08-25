@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#3eaf7c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="preload" href="/snippetshub/assets/css/0.styles.d8969ad5.css" as="style"><link rel="preload" href="/snippetshub/assets/js/app.e4710e0f.js" as="script"><link rel="preload" href="/snippetshub/assets/js/2.3e9ea3ea.js" as="script"><link rel="preload" href="/snippetshub/assets/js/11.3d68a2f2.js" as="script"><link rel="prefetch" href="/snippetshub/assets/js/10.5ff31929.js"><link rel="prefetch" href="/snippetshub/assets/js/12.12b2c9e8.js"><link rel="prefetch" href="/snippetshub/assets/js/13.6b3004fb.js"><link rel="prefetch" href="/snippetshub/assets/js/14.9d8ef068.js"><link rel="prefetch" href="/snippetshub/assets/js/15.30fa8d4b.js"><link rel="prefetch" href="/snippetshub/assets/js/16.7149c9c9.js"><link rel="prefetch" href="/snippetshub/assets/js/3.be15d296.js"><link rel="prefetch" href="/snippetshub/assets/js/4.edf3aaeb.js"><link rel="prefetch" href="/snippetshub/assets/js/5.5425533e.js"><link rel="prefetch" href="/snippetshub/assets/js/6.45ef7420.js"><link rel="prefetch" href="/snippetshub/assets/js/7.18579c5f.js"><link rel="prefetch" href="/snippetshub/assets/js/8.cc89d628.js"><link rel="prefetch" href="/snippetshub/assets/js/9.0219ceeb.js">
+    <link rel="preload" href="/snippetshub/assets/css/0.styles.d8969ad5.css" as="style"><link rel="preload" href="/snippetshub/assets/js/app.72a60e50.js" as="script"><link rel="preload" href="/snippetshub/assets/js/2.3e9ea3ea.js" as="script"><link rel="preload" href="/snippetshub/assets/js/11.52e10005.js" as="script"><link rel="prefetch" href="/snippetshub/assets/js/10.5ff31929.js"><link rel="prefetch" href="/snippetshub/assets/js/12.12b2c9e8.js"><link rel="prefetch" href="/snippetshub/assets/js/13.6b3004fb.js"><link rel="prefetch" href="/snippetshub/assets/js/14.9d8ef068.js"><link rel="prefetch" href="/snippetshub/assets/js/15.30fa8d4b.js"><link rel="prefetch" href="/snippetshub/assets/js/16.7149c9c9.js"><link rel="prefetch" href="/snippetshub/assets/js/3.be15d296.js"><link rel="prefetch" href="/snippetshub/assets/js/4.edf3aaeb.js"><link rel="prefetch" href="/snippetshub/assets/js/5.5425533e.js"><link rel="prefetch" href="/snippetshub/assets/js/6.45ef7420.js"><link rel="prefetch" href="/snippetshub/assets/js/7.18579c5f.js"><link rel="prefetch" href="/snippetshub/assets/js/8.da6362a3.js"><link rel="prefetch" href="/snippetshub/assets/js/9.697ca685.js">
     <link rel="stylesheet" href="/snippetshub/assets/css/0.styles.d8969ad5.css">
   </head>
   <body>
@@ -46,7 +46,29 @@ Once the container has stopped, you can remove it by using the docker rm command
 <code>docker rm -f &lt;the-container-id&gt;</code></p></div> <p>Pushing our Image¶
 In the command line, try running the push command you see on Docker Hub. Note that your command will be using your namespace, not &quot;docker&quot;.</p> <p><code>$ docker push docker/getting-started</code></p> <div class="custom-block danger"><p class="custom-block-title">Error message</p> <p>The push refers to repository [docker.io/docker/getting-started]
 An image does not exist locally with the tag: docker/getting-started</p></div> <p>Why did it fail? The push command was looking for an image named docker/getting-started, but didn't find one. If you run docker image ls, you won't see one either.</p> <p>To fix this, we need to &quot;tag&quot; our existing image we've built to give it another name.</p> <p>Login to the Docker Hub using the command <code>docker login -u YOUR-USER-NAME</code>.</p> <p>Use the docker tag command to give the getting-started image a new name. Be sure to swap out YOUR-USER-NAME with your Docker ID.</p> <p><code>docker tag getting-started YOUR-USER-NAME/getting-started</code>
-Now try your push command again. If you're copying the value from Docker Hub, you can drop the tagname portion, as we didn't add a tag to the image name. If you don't specify a tag, Docker will use a tag called latest.</p> <p><code>docker push YOUR-USER-NAME/getting-started</code></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+Now try your push command again. If you're copying the value from Docker Hub, you can drop the tagname portion, as we didn't add a tag to the image name. If you don't specify a tag, Docker will use a tag called latest.</p> <p><code>docker push YOUR-USER-NAME/getting-started</code></p> <h1 id="fastest-way-to-install-python-3-7-in-docker-container-to-your-local-machine"><a href="#fastest-way-to-install-python-3-7-in-docker-container-to-your-local-machine" aria-label="Anchor" class="header-anchor">#</a> Fastest way to Install Python 3.7 in docker container to your local machine</h1> <p>this <a href="https://www.youtube.com/watch?v=SR95WmOSm0c" target="_blank" rel="noopener noreferrer">youtube video<span class="visually-hidden">, opens in a new window</span> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> will explain it step by step</p> <p>first go to <a href="https://hub.docker.com/_/python" target="_blank" rel="noopener noreferrer">hub.docker<span class="visually-hidden">, opens in a new window</span> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>make new folder and create <code>Dockerfile</code></p> <div class="language-docker extra-class"><pre class="language-docker"><code><span class="token keyword">FROM</span> python<span class="token punctuation">:</span>3
+
+<span class="token keyword">WORKDIR</span> /usr/src/app
+
+<span class="token keyword">COPY</span> requirements.txt ./
+<span class="token keyword">RUN</span> pip install <span class="token punctuation">-</span><span class="token punctuation">-</span>no<span class="token punctuation">-</span>cache<span class="token punctuation">-</span>dir <span class="token punctuation">-</span>r requirements.txt
+
+<span class="token keyword">COPY</span> . .
+
+<span class="token keyword">CMD</span> <span class="token punctuation">[</span> <span class="token string">&quot;python&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;./your-daemon-or-script.py&quot;</span> <span class="token punctuation">]</span>
+</code></pre></div><p>then you build the image by writhing in the terminal:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># build image</span>
+λ docker build -t python-container <span class="token builtin class-name">.</span>
+
+<span class="token comment"># list files inside the container</span>
+λ docker run -it python-container <span class="token function">ls</span>
+
+<span class="token comment"># run bash from inside the container</span>
+λ docker run -it python-container <span class="token function">bash</span>
+
+<span class="token comment"># you can ESC from it by typing</span>
+<span class="token builtin class-name">exit</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/snippetshub/guide/using-vue.html" class="prev">
         JavaScript
@@ -55,6 +77,6 @@ Now try your push command again. If you're copying the value from Docker Hub, yo
       </a>
       →
     </span></p></div> </main></div></div><div class="global-ui"><!----></div></div>
-    <script src="/snippetshub/assets/js/app.e4710e0f.js" defer></script><script src="/snippetshub/assets/js/2.3e9ea3ea.js" defer></script><script src="/snippetshub/assets/js/11.3d68a2f2.js" defer></script>
+    <script src="/snippetshub/assets/js/app.72a60e50.js" defer></script><script src="/snippetshub/assets/js/2.3e9ea3ea.js" defer></script><script src="/snippetshub/assets/js/11.52e10005.js" defer></script>
   </body>
 </html>
