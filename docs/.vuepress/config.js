@@ -71,7 +71,8 @@ module.exports = {
             'using-vue',
             'docker',
             'interviewtests',
-            'chrome'
+            'chrome',
+            'go'
           ]
         }
       ],
