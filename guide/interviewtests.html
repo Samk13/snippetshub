@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#3eaf7c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="preload" href="/snippetshub/assets/css/0.styles.d8969ad5.css" as="style"><link rel="preload" href="/snippetshub/assets/js/app.7fb001c7.js" as="script"><link rel="preload" href="/snippetshub/assets/js/2.3e9ea3ea.js" as="script"><link rel="preload" href="/snippetshub/assets/js/14.e4562e1b.js" as="script"><link rel="prefetch" href="/snippetshub/assets/js/10.5ff31929.js"><link rel="prefetch" href="/snippetshub/assets/js/11.351a776a.js"><link rel="prefetch" href="/snippetshub/assets/js/12.2f6a4eb1.js"><link rel="prefetch" href="/snippetshub/assets/js/13.4a03efc2.js"><link rel="prefetch" href="/snippetshub/assets/js/15.7e8fa8f7.js"><link rel="prefetch" href="/snippetshub/assets/js/16.5dc36f93.js"><link rel="prefetch" href="/snippetshub/assets/js/17.102b1cd4.js"><link rel="prefetch" href="/snippetshub/assets/js/18.68284fa1.js"><link rel="prefetch" href="/snippetshub/assets/js/3.a193fb80.js"><link rel="prefetch" href="/snippetshub/assets/js/4.edf3aaeb.js"><link rel="prefetch" href="/snippetshub/assets/js/5.96122c12.js"><link rel="prefetch" href="/snippetshub/assets/js/6.45ef7420.js"><link rel="prefetch" href="/snippetshub/assets/js/7.18579c5f.js"><link rel="prefetch" href="/snippetshub/assets/js/8.da6362a3.js"><link rel="prefetch" href="/snippetshub/assets/js/9.697ca685.js">
+    <link rel="preload" href="/snippetshub/assets/css/0.styles.d8969ad5.css" as="style"><link rel="preload" href="/snippetshub/assets/js/app.99268c6e.js" as="script"><link rel="preload" href="/snippetshub/assets/js/2.3e9ea3ea.js" as="script"><link rel="preload" href="/snippetshub/assets/js/14.ca197b09.js" as="script"><link rel="prefetch" href="/snippetshub/assets/js/10.5ff31929.js"><link rel="prefetch" href="/snippetshub/assets/js/11.351a776a.js"><link rel="prefetch" href="/snippetshub/assets/js/12.2f6a4eb1.js"><link rel="prefetch" href="/snippetshub/assets/js/13.4a03efc2.js"><link rel="prefetch" href="/snippetshub/assets/js/15.7e8fa8f7.js"><link rel="prefetch" href="/snippetshub/assets/js/16.5dc36f93.js"><link rel="prefetch" href="/snippetshub/assets/js/17.102b1cd4.js"><link rel="prefetch" href="/snippetshub/assets/js/18.68284fa1.js"><link rel="prefetch" href="/snippetshub/assets/js/3.a193fb80.js"><link rel="prefetch" href="/snippetshub/assets/js/4.edf3aaeb.js"><link rel="prefetch" href="/snippetshub/assets/js/5.96122c12.js"><link rel="prefetch" href="/snippetshub/assets/js/6.45ef7420.js"><link rel="prefetch" href="/snippetshub/assets/js/7.18579c5f.js"><link rel="prefetch" href="/snippetshub/assets/js/8.da6362a3.js"><link rel="prefetch" href="/snippetshub/assets/js/9.697ca685.js">
     <link rel="stylesheet" href="/snippetshub/assets/css/0.styles.d8969ad5.css">
   </head>
   <body>
@@ -36,34 +36,37 @@ getMiddle(&quot;middle&quot;) should return &quot;dd&quot;
 getMiddle(&quot;A&quot;) should return &quot;A&quot;
 </code></pre></div><h2 id="input"><a href="#input" aria-label="Anchor" class="header-anchor">#</a> Input</h2> <p>A string of length 0 &lt; str &lt; 1000.</p> <h2 id="output"><a href="#output" aria-label="Anchor" class="header-anchor">#</a> Output</h2> <p>The middle character(s) of the string, represented as another string.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// My solution</span>
 
-<span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token string">'test sam'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token string">&quot;test sam&quot;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> stringLength<span class="token punctuation">;</span>
 <span class="token keyword">let</span> position<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">getMiddle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> str <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">||</span> str <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">)</span>
-  <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>length <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        position <span class="token operator">=</span> str<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-        stringLength <span class="token operator">=</span> <span class="token number">1</span>
-      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        position <span class="token operator">=</span> str<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        stringLength <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>position<span class="token punctuation">,</span> position <span class="token operator">+</span> stringLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token keyword">typeof</span> str <span class="token operator">===</span> <span class="token string">&quot;string&quot;</span> <span class="token operator">||</span> str <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+    str<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+    str<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1000</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>length <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      position <span class="token operator">=</span> str<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      stringLength <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      position <span class="token operator">=</span> str<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      stringLength <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>position<span class="token punctuation">,</span> position <span class="token operator">+</span> stringLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token string">'please enter a &quot;string&quot; value ✍'</span>
+    <span class="token keyword">return</span> <span class="token string">'please enter a &quot;string&quot; value ✍'</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre></div><h1 id="sum-of-all-numbers-that-are-multiples"><a href="#sum-of-all-numbers-that-are-multiples" aria-label="Anchor" class="header-anchor">#</a> sum of all numbers that are multiples</h1> <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p> <h2 id="specification"><a href="#specification" aria-label="Anchor" class="header-anchor">#</a> Specification</h2> <p>Create a solution that returns the sum of all numbers that are multiples of 3 or 5, and are smaller than a given number.</p> <h2 id="examples-2"><a href="#examples-2" aria-label="Anchor" class="header-anchor">#</a> Examples</h2> <p>sum35(10) should return 23
 sum35(200) should return 9168</p> <h2 id="input-2"><a href="#input-2" aria-label="Anchor" class="header-anchor">#</a> Input</h2> <p>An integer specifying the exclusive upper bound.</p> <h2 id="output-2"><a href="#output-2" aria-label="Anchor" class="header-anchor">#</a> Output</h2> <p>An integer containing the sum.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// My solution</span>
 
- <span class="token keyword">const</span> <span class="token function-variable function">sum35</span> <span class="token operator">=</span> <span class="token parameter">num</span> <span class="token operator">=&gt;</span> <span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">&lt;</span> <span class="token number">1000</span>
- <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token function">Array</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">i</span> <span class="token operator">=&gt;</span> i <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">||</span> i <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span>b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span>
- <span class="token operator">:</span> <span class="token string">'please enter a valid number between 0 and 1000✍'</span><span class="token punctuation">;</span> <span class="token comment">// or undefined or null</span>
+<span class="token keyword">const</span> <span class="token function-variable function">sum35</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  <span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">&lt;</span> <span class="token number">1000</span>
+    <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token function">Array</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> i <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">||</span> i <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token string">&quot;please enter a valid number between 0 and 1000✍&quot;</span><span class="token punctuation">;</span> <span class="token comment">// or undefined or null</span>
 </code></pre></div><h1 id="markdown-question"><a href="#markdown-question" aria-label="Anchor" class="header-anchor">#</a> Markdown question</h1> <p>Markdown is a formatting syntax used by many documents (these instructions, for example!) because of its plain-text simplicity and its ability to be translated directly into HTML.</p> <h2 id="specification-2"><a href="#specification-2" aria-label="Anchor" class="header-anchor">#</a> Specification</h2> <p>Write a simple markdown parser function that will take in a single line of markdown and translate it into the appropriate HTML. To keep it simple, support only one feature of markdown in atx syntax: headers.
 Headers are designated by 1-6 hash characters followed by a space, followed by text. The number of hashes determines the header level of the HTML output.</p> <p>Header content should only come after the initial hashtag(s) plus a space character.
 Invalid headers should just be returned as the markdown that was received, no translation necessary.
@@ -85,9 +88,9 @@ Spaces before the hashes and after the header should be kept in the output, but 
   <span class="token keyword">const</span> manyHashes <span class="token operator">=</span> <span class="token regex">/^(#{7,}\s{1})/</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> manyspaces <span class="token operator">=</span> <span class="token regex">/^(#{1,6}\s{2,})/</span><span class="token punctuation">;</span>
 
- <span class="token keyword">if</span> <span class="token punctuation">(</span>manyspaces<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>manyspaces<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> (too many spaces between)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>h1<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>h1<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h1&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/h1&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>h2<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h2&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/h2&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
@@ -104,8 +107,223 @@ Spaces before the hashes and after the header should be kept in the output, but 
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> str<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre></div><p>I got rejected with this reply :</p> <blockquote><p>some of the functions could have been written both less verbose, more performant, and more readable. For instance, the functional (filter/reduce) solution to Q2 is very wasteful in terms of CPU and memory, and the duplication in Q3 should have been generalized. We also lacked comments or other info that explained the implementation choices. Maybe you considered the imperative solution in Q2 and decided against it for a good reason? We were unable to tell.</p></blockquote> <p>Personally I love map, reduce, filter, find and I have been using them for a while now. They helped me write clean, short, fast and straight to the point code which aligned with my thought process. I use a for loop &quot;the faster choice&quot; when I have no choice left. As far as you didn't mention, performance optimization is required.</p> <p>So guys if you feel like you have better way solving these question just commit your solution and I will add it here</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>I got rejected with this reply :</p> <blockquote><p>some of the functions could have been written both less verbose, more performant, and more readable. For instance, the functional (filter/reduce) solution to Q2 is very wasteful in terms of CPU and memory, and the duplication in Q3 should have been generalized. We also lacked comments or other info that explained the implementation choices. Maybe you considered the imperative solution in Q2 and decided against it for a good reason? We were unable to tell.</p></blockquote> <p>Personally I love map, reduce, filter, find and I have been using them for a while now. They helped me write clean, short, fast and straight to the point code which aligned with my thought process. I use a for loop &quot;the faster choice&quot; when I have no choice left. As far as you didn't mention, performance optimization is required.</p> <p>So guys if you feel like you have better way solving these question just commit your solution and I will add it here</p> <h1 id="future-skills"><a href="#future-skills" aria-label="Anchor" class="header-anchor">#</a> Future skills</h1> <p>module.exports = class Solution {
+constructor(api) {
+this.api = api;
+// You can initiate and calculate things he
+this.level1(0)</p> <p>}</p> <p>/**</p> <ul><li>Let the dog eat bone number Zero (0).</li> <li>*/
+level1(boneNumber) {
+// Write your code here
+this.api.eatBone(0)
+}</li></ul> <p>/**</p> <ul><li>Let the dog eat bones numbered 0, 1 and 2.</li> <li>*/
+level2() {
+// Write your code her
+const bones = this.api.getBonesForDog(0)
+bones.map((b)=&gt;this.api.eatBone(b))
+}</li></ul> <p>/**</p> <ul><li>Use a loop to let the dog eat all bones. There 18 bones numbered from</li> <li>0 to 17.</li> <li>*/
+level3() {
+let i = 0
+while ( i&lt;= 17){
+this.api.eatBone(i)
+i++
+}
+}</li></ul> <p>/**</p> <ul><li>Let the dog eat only brown bones(8). There are 22 bones numbered from</li> <li>0 to 21.</li> <li>*/
+level4() {
+let i = 0
+while ( i&lt;= 22){
+if(this.api.isBrownBone(i))
+this.api.eatBone(i)
+i++
+}
+}</li></ul> <p>/**</p> <ul><li><p>Let the dog eat all bones except for bone numbers 2, 4 and 5. There</p></li> <li><p>are 10 bones numbered from 0 to 9. Use the continue keyword.</p></li> <li><p>*/
+level5() {</p> <p>for (let i = 0; i &lt;= 9 ; i++){
+if(i === 2 || i === 4 || i === 5){
+continue
+}
+this.api.eatBone(i)
+}
+}</p></li></ul> <p>/**</p> <ul><li>Let the dog eat available bones until it is time to go home. There are</li> <li>10 bones numbered from 0 to 9. Use the break keyword.</li> <li>*/
+level6() {
+// Write your code here
+}</li></ul> <p>/**</p> <ul><li><p>Let all dogs, eat their corresponding bones. Use nested loops.</p></li> <li><p>*/
+level7() {
+// Write your code here
+}
+}</p> <p><a href="https://app.futureskill.com/exercise/5eb41161fafd713c88d5e338" target="_blank" rel="noopener noreferrer">there is an API to use there<span class="visually-hidden">, opens in a new window</span> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li></ul> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>here is my solition</p></div> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">api</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>api <span class="token operator">=</span> api<span class="token punctuation">;</span>
+    <span class="token comment">// You can initiate and calculate things he</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">level1</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Let the dog eat bone number Zero (0).
+   *
+   */</span>
+  <span class="token function">level1</span><span class="token punctuation">(</span><span class="token parameter">boneNumber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code here</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">eatBone</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Let the dog eat bones numbered 0, 1 and 2.
+   *
+   */</span>
+  <span class="token function">level2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code her</span>
+    <span class="token keyword">const</span> bones <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">getBonesForDog</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    bones<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">eatBone</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Use a loop to let the dog eat all bones. There 18 bones numbered from
+   * 0 to 17.
+   *
+   */</span>
+  <span class="token function">level3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> <span class="token number">17</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">eatBone</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Let the dog eat only brown bones(8). There are 22 bones numbered from
+   * 0 to 21.
+   *
+   */</span>
+  <span class="token function">level4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> <span class="token number">22</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">isBrownBone</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">eatBone</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Let the dog eat all bones except for bone numbers 2, 4 and 5. There
+   * are 10 bones numbered from 0 to 9. Use the continue keyword.
+   *
+   */</span>
+  <span class="token function">level5</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">9</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token number">2</span> <span class="token operator">||</span> i <span class="token operator">===</span> <span class="token number">4</span> <span class="token operator">||</span> i <span class="token operator">===</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">continue</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">eatBone</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Let the dog eat available bones until it is time to go home. There are
+   * 10 bones numbered from 0 to 9. Use the break keyword.
+   *
+   */</span>
+  <span class="token function">level6</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code here</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Let all dogs, eat their corresponding bones. Use nested loops.
+   *
+   */</span>
+  <span class="token function">level7</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code here</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h1 id="trial-test"><a href="#trial-test" aria-label="Anchor" class="header-anchor">#</a> Trial test</h1> <p>Trial
+This is a trial test which is meant to give an opportunity to try out the interface before the actual test is started.</p> <p>The task is to retrieve a &quot;magical number&quot; from the API and then implement a method which returns the same number back. You get one point for a test level which is solved correctly, otherwise zero points.</p> <p>This is a very simple task but please take the opportunity to try out the interface, how to do printouts to the console in the bottom right corner etc.</p> <p>There is a help function which you access via the button with a question mark in the top right corner.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> SolutionInterface <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./SolutionInterface&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> api <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./API&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token keyword">extends</span> <span class="token class-name">SolutionInterface</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>api <span class="token operator">=</span> api<span class="token punctuation">;</span>
+
+    <span class="token comment">// You can initiate and calculate things here</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Return the magic number which you get from the api.
+   *
+   *
+   * @return {number (integer)}
+   */</span>
+  <span class="token function">returnMagicNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code here</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">getMagicNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>Cow Counting
+Overview
+You are supposed to count cows on a field. The field forms an n times n grid, and the cows are organised and will only stand one by one within a grid square. Your two counting tasks are described below, followed by a description of the available API, the canvas, and how the score is calculated.</p> <p>Make sure to read the entire description before attempting the tasks.</p> <p>Task 1: Corner Cows (2 points)
+Your first task is to count the number of shy cows hiding in the corners of the field.</p> <p>Example
+In this 3 by 3 field, there are 2 cows hiding in the corners. Their (x, y) positions are (0, 0) and (2, 2).</p> <p>Task 2: Neighbour Cows (8 points)
+Your second task is to count the number of cows with at least one neighbouring cow. Cows are considered neighbours if they are next to each other in the cardinal directions, but not the diagonals.</p> <p>Example
+In this 3 by 3 field, there are 4 cows with neighbours. There are 2 cows with neighbours on row y=0, and also 2 cows with neighbours in column x=2.</p> <p>API Description
+The following data is available for you to access through the API provided. Details about the API functions and the data they provide can be found under the API tab.</p> <p>Get field size - Returns n, the size of the n by n field. The minimum size is 1.
+Get number of cows - Returns the number of cows on the field.
+Get x - Returns the x-position of a given cow. Starting at 0.
+Get y - Returns the y-position of a given cow. Starting at 0.
+Canvas Description</p> <p>Scoring
+Focus on getting the correct output, as this is the major part of the scoring (80%). You can see your points for each level in the canvas on the bottom right when you press 'Run code', 2 points are awarded for Task 1 and 8 points are awarded for Task 2. Note that your code will be assessed using hidden levels of different configurations. Ensure your code works for all scenarios.</p> <p>20% of your score is calculated through time-complexity analysis of your solution, so if you have time try to consider how to make your solution as efficient as possible.</p> <p>A tip to get started is to return 0 as the solution for each task and press &quot;Run code&quot; to see what happens.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> SolutionInterface <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./SolutionInterface&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> api <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./API&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token keyword">extends</span> <span class="token class-name">SolutionInterface</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>api <span class="token operator">=</span> api<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Task 1: Return the number of cows hiding in corners.
+   *
+   *
+   * @return {number (integer)}
+   */</span>
+  <span class="token function">getNumberOfCowsInCorners</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code here</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">getNumberOfCows</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Task 2: Return the number of cows with neighbours.
+   *
+   *
+   * @return {number (integer)}
+   */</span>
+  <span class="token function">getNumberOfCowsWithNeighbours</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Write your code here</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>const SolutionInterface = require('./SolutionInterface');
+const api = require('./API');</p> <p>module.exports = class Solution extends SolutionInterface {
+constructor() {
+super();</p> <div class="language- extra-class"><pre><code>this.api = api
+</code></pre></div><p>}</p> <p>/**</p> <ul><li><p>Task 1: Return the number of cows hiding in corners.</p></li> <li></li> <li></li> <li><p>@return {number (integer)}
+*/
+getNumberOfCowsInCorners() {
+// Write your code here
+let fSize = this.api.getFieldSize()
+let cows = this.api.getNumberOfCows()
+let index = 7
+let x = this.api.getX(cows-1)
+let y = this.api.getY(cows-1)</p> <p>console.log(x,y)
+console.log(cows)</p> <p>let arr = []</p> <p>for(let i = 0;i &lt; cows; i++){
+arr.push(i)
+}
+console.log(arr)
+return cows</p></li></ul> <p>}</p> <p>/**</p> <ul><li>Task 2: Return the number of cows with neighbours.</li> <li></li> <li></li> <li>@return {number (integer)}
+*/
+getNumberOfCowsWithNeighbours() {
+// Write your code here
+return -2;
+}
+}</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/snippetshub/guide/docker.html" class="prev">
         Docker
@@ -114,6 +332,6 @@ Spaces before the hashes and after the header should be kept in the output, but 
       </a>
       →
     </span></p></div> </main></div></div><div class="global-ui"><!----></div></div>
-    <script src="/snippetshub/assets/js/app.7fb001c7.js" defer></script><script src="/snippetshub/assets/js/2.3e9ea3ea.js" defer></script><script src="/snippetshub/assets/js/14.e4562e1b.js" defer></script>
+    <script src="/snippetshub/assets/js/app.99268c6e.js" defer></script><script src="/snippetshub/assets/js/2.3e9ea3ea.js" defer></script><script src="/snippetshub/assets/js/14.ca197b09.js" defer></script>
   </body>
 </html>
