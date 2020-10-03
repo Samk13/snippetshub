@@ -77,6 +77,7 @@ module.exports = {
             "chrome",
             "go",
             "javaScript",
+            "php",
           ],
         },
       ],
