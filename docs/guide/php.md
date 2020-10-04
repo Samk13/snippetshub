@@ -238,11 +238,35 @@ $people3 = array_merge($people1,$people2);
      echo $blog["title"] . " - " . $blog["likes"] . "<br>";
  }
 
+ // otehr example
+
+ <?php
+ $blogs= [
+     ["title" => "title1", "author"=>"autor1","title2"=>"the text1", "likes"=>12],
+     ["title" => "title2", "author"=>"autor2","title2"=>"the text2", "likes"=>1212],
+     ["title" => "title3", "author"=>"autor3","title2"=>"the text3", "likes"=>1212],
+     ["title" => "title4", "author"=>"autor4","title2"=>"the text4", "likes"=>1122],
+ ];
+
+?>
+
+<h1>Products</h1>
+<ul>
+<?php foreach($blogs as $blog){ ?>
+    <li>
+        <div><?php echo  $blog["author"]; ?></div>
+        <span> likes <?php echo  $blog["likes"]; ?></span>
+    </li>
+ <?php } ?>
+</ul>
+
 ```
 
 ##
 
 ## collect inputs from checkBox:
+
+[really good resource to check for this](https://www.youtube.com/watch?v=firSTs1bEEY&list=PL4cUxeGkcC9gksOX3Kd9KPo-O68ncT05o&index=21&ab_channel=TheNetNinja)
 
 ```php
 <form action="index.php" method="post">
@@ -267,6 +291,44 @@ function sayHi($name)
     echo "Hello $name";
 };
 sayhi("sam");
+```
+
+# Scopes
+
+## Variable scope
+
+:::warning
+If you see in a fuction input a variable name with `&` like `&$variable` that means that this variable
+has a global scope and this function will change the very same globale scope function, not only the private scope variable inside that function.
+::::
+
+```php
+ $name = "🍟";
+ function sayBye(&$name)
+ {
+     $name= "🌭";
+     global $name;
+    echo "bye {$name}";
+ }
+
+ sayBye($name); //🌭
+ echo $name; // 🌭
+```
+
+## Global variables
+
+if you have same variable inside and outside the function, you can force the fuction to read the varible outside the function scope by adding the word `global` before the variable.
+
+```php
+ $price = "🍔";
+ function myFunc()
+ {
+     $price = "🍟";
+     global $price;
+    echo $price;
+ }
+
+ myFunc() // "🍔"
 ```
 
 # Loops
@@ -305,10 +367,16 @@ Simple example:
   ?>
 ```
 
-## Include in php
+## Include and require in PHP
 
 It's similer to `import` in JavaScript
-when yuou includ a file you can inherit all the variable and functions that is pblically avaialble.
+when you want to include a file inside another you can inherit all the variable and functions that is pblically avaialble.
+
+the diffrence between `require` and `include` is that:
+`require` will stop the code execution if the file does not exist
+`include` will keep execute the code even if there was errors on the way
+
+you can write it like `require("filename.php");` or `require "filename.php";` both are accepted.
 
 ```php
 includ "fileName.php";
@@ -427,3 +495,123 @@ It's a function that it gets called whenever we created that class
   $book1->getInfo();
   ?>
 ```
+
+# PHP internal functions
+
+`isset();` will check if certain vart has been set.
+
+`empty();` check if the inpyut is empty exp: `empty($_POST["email"])`
+
+# PHP special arrays
+
+`$_POST` more secure way to get form information
+
+`$_GET` less secure cause you can get the input data in the url
+you can show the data by writing :
+`print_r($_POST);`
+
+# XSS Attacks
+
+Whenever you get data from users you should check for special charachters in case they send some millisious data. by wraping the `$_GET()` with `htmlspecialchars();`
+
+```php
+htmlspecialchars($_POST['email']);
+```
+
+## PHP filter functions
+
+## filter_has_var()
+
+filter_has_var — Checks if variable of specified type exists
+
+Returns TRUE on success or FALSE on failure.
+
+## filter_id()
+
+filter_id — Returns the filter ID belonging to a named filter
+
+## filter_var()
+
+filter_var — Filters a variable with a specified filter
+
+## filter_input_array()
+
+filter_input_array — Gets external variables and optionally filters them
+
+## filter_input()
+
+filter_input — Gets a specific external variable by name and optionally filters it
+
+```php
+filter_var($email, FILTER_VALIDATE_EMAIL); // validate email
+```
+
+## Validate filters
+
+### `FILTER_VALIDATE_BOOLEAN`
+
+Returns TRUE for "1", "true", "on" and "yes". Returns FALSE otherwise.
+
+If FILTER_NULL_ON_FAILURE is set, FALSE is returned only for "0", "false", "off", "no", and "", and NULL is returned for all non-boolean values.
+
+### `FILTER_VALIDATE_DOMAIN`
+
+Validates whether the domain name label lengths are valid.
+
+Validates domain names against RFC 1034, RFC 1035, RFC 952, RFC 1123, RFC 2732, RFC 2181, and RFC 1123. Optional flag FILTER_FLAG_HOSTNAME adds ability to specifically validate hostnames (they must start with an alphanumeric character and contain only alphanumerics or hyphens).
+
+### `FILTER_VALIDATE_EMAIL`
+
+Validates whether the value is a valid e-mail address.
+
+In general, this validates e-mail addresses against the syntax in RFC 822, with the exceptions that comments and whitespace folding and dotless domain names are not supported.
+
+### `FILTER_VALIDATE_FLOAT`
+
+Validates value as float, optionally from the specified range, and converts to float on success.
+
+### `FILTER_VALIDATE_INT`
+
+Validates value as integer, optionally from the specified range, and converts to int on success.
+
+### `FILTER_VALIDATE_IP`
+
+Validates value as IP address, optionally only IPv4 or IPv6 or not from private or reserved ranges.
+
+### `FILTER_VALIDATE_MAC`
+
+Validates value as MAC address.
+
+### `FILTER_VALIDATE_REGEXP`
+
+Validates value against regexp, a Perl-compatible regular expression.
+
+### `FILTER_VALIDATE_URL`
+
+Validates value as URL (according to » http://www.faqs.org/rfcs/rfc2396), optionally with required components. Beware a valid URL may not specify the HTTP protocol http:// so further validation may be required to determine the URL uses an expected protocol, e.g. ssh:// or mailto:. Note that the function will only find ASCII URLs to be valid; internationalized domain names (containing non-ASCII characters) will fail.
+
+# Variable handling functions
+
+## [isset()](https://www.php.net/manual/en/function.isset.php)
+
+Determine if a variable is declared and is different than NULL
+
+## [boolval()](https://www.php.net/manual/en/function.boolval.php)
+
+To anyone like me who came here looking for a way to turn any value into a 0/1 that will fit into a MySQL boolean (tinyint) field:
+
+```php
+<?php
+$tinyint = (int) filter_var($valToCheck, FILTER_VALIDATE_BOOLEAN);
+?>
+```
+
+tinyint will be 0 (zero) for values like string "false", boolean false, int 0
+
+tinyint will be 1 for values like string "true", boolean true, int 1
+
+Useful if you are accepting data that might be from a language like Javascript that sends string "false" for a boolean false.
+
+## fetch the data from mysql
+
+[follow these steps here](https://www.youtube.com/watch?v=WGuyxGJW9hs&list=PL4cUxeGkcC9gksOX3Kd9KPo-O68ncT05o&index=26&ab_channel=TheNetNinja)
