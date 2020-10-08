@@ -78,6 +78,7 @@ module.exports = {
             "go",
             "javaScript",
             "php",
+            "phpOop",
           ],
         },
       ],
