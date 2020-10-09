@@ -189,3 +189,180 @@ $game->play();
 $game = new Mario();
 $game->play();
 ```
+
+## HandChakes and interfaces
+
+```php
+<?php
+
+// interface it's like class without behaviour
+// basically it will gorce function that implement it to have certain functions that is required in the interface
+interface NewsLetter
+{
+    // it's not even allowed to gave a body for the functions
+    // this what I force 👇 to implement
+    public function subscribe($email);
+
+}
+class CampaignMonitor implements NewsLetter
+{
+    public function subscribe($email)
+    {
+         echo('subsribing by Campaign monitor <br>');
+    }
+}
+
+// and you should implement  the interface here
+//             👇        👇
+class Drip implements NewsLetter
+// if I don't implements i get error : ...  must implement interface NewsLetter, instance of Drip given, ...
+{
+    public function subscribe($email)
+    {
+         echo('subsribing by Drip <br>');
+    }
+}
+
+class NewsLetterSubscriptionController
+{
+    // implement the interface 👇 here
+    public function store(NewsLetter $newsletter)
+    {
+        $email = 'test@test.com';
+    // i need to call it 👇 here
+        $newsletter->subscribe($email);
+    }
+}
+
+$controller = new NewsLetterSubscriptionController();
+$controller->store(new Drip());
+$controller->store(new CampaignMonitor());
+
+```
+
+## Change accessibility of a function
+
+```php
+<?php
+
+class Person
+{
+    public $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+    private function thingsThatShouldBePrivate()
+    {
+        echo 'The Private things that we should keep it private.🤐';
+    }
+}
+
+// how to get a  private function
+
+$method = new \ReflectionMethod(Person::class, 'thingsThatShouldBePrivate');
+$method->setAccessible(true);
+$person = new Person('Sam');
+$method->invoke($person);
+```
+
+## Object composition
+
+```php
+<?php
+
+// Object Composition means: combining types to build more complex objects
+// it's when one class has a pointer into another class
+
+class Subscription
+{
+    /**
+     * @var \Gateway
+    */
+    protected Gateway $gatway;
+
+    public function __construct(Gateway $gatway)
+    {
+        $this->gatway = $gatway;
+    }
+
+    public function swap($newPlan)
+    {
+        //
+    }
+    protected function findStripCustomer($newPlan)
+    {
+        //
+    }
+}
+
+interface Gateway
+{
+    public function findCustomer();
+    public function findSubscriptionByCustomer();
+}
+
+class SripeGatway implements Gateway
+{
+    public function findCustomer()
+    {
+        //
+    }
+
+    public function findSubscriptionByCustomer()
+    {
+        //
+    }
+}
+
+new Subscription(new SripeGatway());
+```
+
+## Create Types in PHP
+
+if you want to make a special type for data other then the primitive ones like `string` or `int`,
+you can create a class :
+
+```php
+class Coordinates
+{
+    private $x;
+    private $y;
+
+    public function __construct($x, $y)
+    {
+        $this->x = $x;
+        $this->y = $y;
+    }
+
+    public function getX()
+    {
+        echo ' ___________ ';
+        echo $this->x;
+        echo ' ___________ ';
+    }
+    public function getY()
+    {
+        echo $this->y;
+
+    }
+    public function getXY()
+    {
+        echo '_____';
+        echo $this->y;
+        echo '_____';
+        echo $this->y;
+    }
+
+}
+
+function pin(Coordinates $coordinates)
+{
+    echo $coordinates->getX();
+    echo $coordinates->getY();
+    echo $coordinates->getXY();
+}
+
+pin((new Coordinates(12, 123412)));
+```
