@@ -123,7 +123,7 @@ $\_POST : more secure and data will not show in the URL
 </html>
 ```
 
-## Arrays in PHP:
+# Arrays in PHP:
 
 We creat an array like this :
 
@@ -262,6 +262,42 @@ $people3 = array_merge($people1,$people2);
 
 ```
 
+## present array in HTML
+
+```php
+    <ul>
+        <?php
+            foreach($names as $name){
+                echo "<li>$name</li>";
+            }
+        ?>
+    </ul>
+    <!-- cleaner way writing forloops inside html  -->
+    <ul>
+        <?php foreach($names as $name) : ?>
+            <li><?= $name; ?></li>
+        <?php endforeach ?>
+    </ul>
+```
+
+## present of else in htnl
+
+```php
+<td>
+// ternery opperator way
+<?= $task['completed'] ? 'Completed':'Not completed';
+
+// if you need to do more then one thing then regular if else is better
+
+
+    <?php if($task['completed']) :?>
+        <span class="text-4xl bg-white w-full rounded-lg">&#9989;</span>
+    <?php else  :?>
+        <span class="text-4xl bg-white w-full rounded-lg">&#10060;</span>
+    <?php endif ?>
+</td>
+```
+
 ##
 
 ## collect inputs from checkBox:
@@ -281,7 +317,52 @@ echo print_r($fruits[0]);
 ?>
 ```
 
-## Functions in PHP
+## Array push
+
+```php
+$animals = [
+'animal1',
+'animal2',
+];
+
+// add to  normal array
+$animals[] = 'one more animal';
+
+$person = [
+    'name'=> 'Sam',
+    'age'=> 36,
+    'career' => 'Software engeneer',
+    'location' => 'Stockholm'
+];
+
+// add to associative array
+
+$person['address']  = "add your address";
+```
+
+## Array pop or remove element
+
+```php
+// remove from array
+unset($person['location']);
+```
+
+## Array formatting on display
+
+you can preserve the formatting by echo out `<pre> echo "code" </pre>`
+
+You can make function to display formatted array like:
+
+```php
+function logarr ($val)
+{
+    echo "<pre>";
+    var_dump($val);
+    echo "</pre>";
+}
+```
+
+# Functions in PHP
 
 make function that greet the user:¨
 
@@ -615,3 +696,11 @@ Useful if you are accepting data that might be from a language like Javascript t
 ## fetch the data from mysql
 
 [follow these steps here](https://www.youtube.com/watch?v=WGuyxGJW9hs&list=PL4cUxeGkcC9gksOX3Kd9KPo-O68ncT05o&index=26&ab_channel=TheNetNinja)
+
+## Usefull dunctions in PHP
+
+```php
+// first char to upper case
+ucwords($name); // hello world => Hello World
+
+```

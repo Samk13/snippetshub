@@ -79,6 +79,7 @@ module.exports = {
             "javaScript",
             "php",
             "phpOop",
+            "mysql",
           ],
         },
       ],
