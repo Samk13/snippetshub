@@ -1,6 +1,7 @@
 # Vim
 
 ## Modes
+
 modes: `[normal, insert, commend, visual]`
 
 - insert -> normal = ESC
@@ -9,65 +10,56 @@ modes: `[normal, insert, commend, visual]`
 - normal -> insert = iI aA cC oO
 - commend -> normal = ENTER
 
+# Joy of Painting[1] with Bob Ross[2]
 
-
-Joy of Painting[1] with Bob Ross[2]
-=
-
-	[1] - Vim
-	[2] - Shawn Biddle
+    [1] - Vim
+    [2] - Shawn Biddle
 
 ## Modality
 
-
-	Insert  - Brush is on the canvas
-	Normal  - Brush is off the canvas
-	Command - Mixing your pallette
+    Insert  - Brush is on the canvas
+    Normal  - Brush is off the canvas
+    Command - Mixing your pallette
 
 ## Starting Vim
 
-
-	vim <file>
-	vim, :e <file>
+    vim <file>
+    vim, :e <file>
 
 ## Pen to the page
 
+    i - Enter insert mode at cursor
+    I - Enter insert mode at first non-blank character
+    s - Delete character under cursor and enter insert mode
+    S - Delete line and begin insert at beginning of same line
+    a - Enter insert mode _after_ cursor
+    A - Enter insert mode at the end of the line
+    o - Enter insert mode on the next line
+    O - enter insert mode on the above line
+    C - Delete from cursor to end of line and begin insert
 
-	i - Enter insert mode at cursor
-	I - Enter insert mode at first non-blank character
-	s - Delete character under cursor and enter insert mode
-	S - Delete line and begin insert at beginning of same line
-	a - Enter insert mode _after_ cursor
-	A - Enter insert mode at the end of the line
-	o - Enter insert mode on the next line
-	O - enter insert mode on the above line
-	C - Delete from cursor to end of line and begin insert
-
-	This is a test sentence
+    This is a test sentence
 
 (Next class will cover 'c')
 
 ## Picking up the brush
 
-
-	ESC
-	Ctrl+[
+    ESC
+    Ctrl+[
 
 ## Scanning the canvas
 
-
-	    k
-	    ^
-	h <   > l
-	    v
-	    j
-
+        k
+        ^
+    h <   > l
+        v
+        j
 
 yy - Copies a line
 
 yw - Copies a word
 
-y$ - Copies from where your cursor is to the end of a line
+y\$ - Copies from where your cursor is to the end of a line
 
 v - Highlight one character at a time using arrow buttons or the h, k, j, l buttons
 
@@ -97,22 +89,22 @@ Ctrl + r - Redo the last undo
 
 . - Repeats the last action
 
-
 4. Vim commands
 
 ## Getting from a to b: Motions
 
 Basics: wWbBeE
 
-	w - Forward to the beginning of next word
-	W - Forward to the beginning of the next WORD
-	b - Backward to the next beginning of a word
-	B - Backward to the next beginning of a WORD
-	e - Forward to the next end of word
-	E - Forward to the next end of WORD
+    w - Forward to the beginning of next word
+    W - Forward to the beginning of the next WORD
+    b - Backward to the next beginning of a word
+    B - Backward to the next beginning of a WORD
+    e - Forward to the next end of word
+    E - Forward to the next end of WORD
 
 Slightly less basic: fFtT
 All follow `[(n)um]<verb><n(o)un>` syntax
+
 ```vim
 	[n]f<o> - Forward until (nth) (o)  (Inclusive)
 	[n]F<o> - Backward until (nth) (o) (Inclusive)
@@ -122,33 +114,29 @@ All follow `[(n)um]<verb><n(o)un>` syntax
 	abcdefg, abcdefg, abcdefg
 ```
 
-
 ## Searching
 
-
-	/  - Forward  turn off highlight ":nohl" : (no highlight)
-	?  - Backward
-	*  - Word under cursor - forward  (bounded)
-	g* - Word under cursor - forward  (unbounded)
-	#  - Word under cursor - backward (bounded)
-	g# - Word under cursor - backward (unbounded)
-	n  - Next result, forward
-	N  - Next result, backward
+    /  - Forward  turn off highlight ":nohl" : (no highlight)
+    ?  - Backward
+    *  - Word under cursor - forward  (bounded)
+    g* - Word under cursor - forward  (unbounded)
+    #  - Word under cursor - backward (bounded)
+    g# - Word under cursor - backward (unbounded)
+    n  - Next result, forward
+    N  - Next result, backward
 
 (Note here to explain what bounded/unbounded mean)
 
 ## Copy/Paste
 
+    y - Yank. Example: yw (yank word)
+    p - paste after cursor
+    P - paste before cursor
 
-	y - Yank. Example: yw (yank word)
-	p - paste after cursor
-	P - paste before cursor
+    gg - go to the beginning of the file
+    G - go to the end
 
-	gg - go to the begenning of the file
-	G - go to the end
-
-	ggvG  - select all
-
+    ggvG  - select all
 
 # vim: set syn=mkd :
 
@@ -164,14 +152,14 @@ All follow `[(n)um]<verb><n(o)un>` syntax
 	Copy/Paste: yYpP
 ```
 
-
 ## Understanding the Argument/Noun/Verb Relationship
 
 Editing commands generally follow the structure of:
 
-	[register][num/range]<verb><noun|(i|a)<text object>>
+    [register][num/range]<verb><noun|(i|a)<text object>>
 
 Example #1:
+
 ```
 	3dw - delete 3 words
 	3 d w
@@ -179,7 +167,9 @@ Example #1:
 	| ` delete     } 3 words
 	` 3 ----------/
 ```
+
 Example #2: (More detail later)
+
 ```
 	ci(
 	c i (
@@ -187,9 +177,10 @@ Example #2: (More detail later)
 	| ` Inside text-object
 	` change
 ```
+
 Arguments = Ranges
-Nouns     = Motions/Text Objects
-Verbs     = Commands
+Nouns = Motions/Text Objects
+Verbs = Commands
 
 ## Common Edit commands
 
@@ -218,36 +209,37 @@ Verbs     = Commands
 
 Accessing:
 
-	"<reg>
-Example:
-	"ayy - Yank current line into 'a' register
-	"ap  - Paste 'a' register
+    "<reg>
 
-`	<C-r><reg> - Paste contents of <reg>`
-		Example:
-		`	[INS] Hello [ESC] byw [INS]<C-r>" -> HelloHello`
+Example:
+"ayy - Yank current line into 'a' register
+"ap - Paste 'a' register
+
+`<C-r><reg> - Paste contents of <reg>`
+Example:
+`[INS] Hello [ESC] byw [INS]<C-r>" -> HelloHello`
 
 Listing:
 
-	:reg
+    :reg
 
 ## Special registers:
 
-	" - Noname buffer - Last dcsxy
-	_ - Blackhole buffer
-	% - Filename
-	/ - Last search
-	: - Last command
-	. - Last edit
+    " - Noname buffer - Last dcsxy
+    _ - Blackhole buffer
+    % - Filename
+    / - Last search
+    : - Last command
+    . - Last edit
 
 ## Register assignment commands
+
 ```
 	y - Yank
 	q - Macros (much later)
 	m - Marks  (a little later)
 	(Any command that edits will assign to the "" [noname buffer])
 ```
-
 
 ## Advanced motions
 
@@ -267,41 +259,38 @@ Listing:
 ; - Repeat last motion forward
 
 , - Repeat last motion backward
-	`g<hjkl>` - Go down a _visual_ line
+`g<hjkl>` - Go down a _visual_ line
 This is some text that's going to wrap so I have to fill in a lot of words. I can never think of things to type here because I'm not a creative person but this will demonstrate visual versus hardbroken lines.
 This is a second line
 
-	<#>G - Go to Line #
-	gg   - Go to the top of the file
+    <#>G - Go to Line #
+    gg   - Go to the top of the file
 
-	]] - Next section (Depending on your current filetype this may move between functions)
-	[[ - Previous section (see above note)
-	0 - Front of line
-	^ - Front of line (first non-blank)
-	% - Matching brace/bracket/paren/tag(with matchtag plugin, see session 3)
-	$ - End of line
+    ]] - Next section (Depending on your current filetype this may move between functions)
+    [[ - Previous section (see above note)
+    0 - Front of line
+    ^ - Front of line (first non-blank)
+    % - Matching brace/bracket/paren/tag(with matchtag plugin, see session 3)
+    $ - End of line
 
-Text objects
-============
+# Text objects
 
-	{}[]()w<>t'"`
+    {}[]()w<>t'"`
 
-	i vs a:
-		i = Inside
-			Example:
-				self.test[obj|ect] -> ci[ -> self.test[|]
+    i vs a:
+    	i = Inside
+    		Example:
+    			self.test[obj|ect] -> ci[ -> self.test[|]
 
-		a = Around
-			Example:
-				self.test[obj|ect] -> ca[ -> self.test|
+    	a = Around
+    		Example:
+    			self.test[obj|ect] -> ca[ -> self.test|
 
+# Misc. commands
 
-Misc. commands
-==============
-
-	[count](<|>) - Indent count	lines
-		Example:
-			3>
+    [count](<|>) - Indent count	lines
+    	Example:
+    		3>
 
 1
 
@@ -309,7 +298,7 @@ Misc. commands
 
 3
 
-	<range>[count](<|>) - Indent given range count times
+    <range>[count](<|>) - Indent given range count times
 
 1
 
@@ -319,14 +308,14 @@ Misc. commands
 
 4
 
-	u - Undo (See :help undo, it's complicated)
-	C-r - Redo
-	. - Redo last change
-	zz - Center screen
-	ZZ - Write and quit. Only write if file has changed (preserves last mod time)
-
+    u - Undo (See :help undo, it's complicated)
+    C-r - Redo
+    . - Redo last change
+    zz - Center screen
+    ZZ - Write and quit. Only write if file has changed (preserves last mod time)
 
 Managing multiple files at once
+
 ```vim
 	:tabnew [file]       - Open a new tab with given file (or empty file)
 	gt or :tabn[ext]     - Next tab
@@ -335,6 +324,3 @@ Managing multiple files at once
 	:tabc        - Close current tab
 	:tabo        - Close all other tabs except current
 ```
-
-
-

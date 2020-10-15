@@ -80,6 +80,7 @@ module.exports = {
             "php",
             "phpOop",
             "mysql",
+            "laravel",
           ],
         },
       ],

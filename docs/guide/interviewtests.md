@@ -384,11 +384,11 @@ Your first task is to count the number of shy cows hiding in the corners of the 
 Example
 In this 3 by 3 field, there are 2 cows hiding in the corners. Their (x, y) positions are (0, 0) and (2, 2).
 
-Task 2: Neighbour Cows (8 points)
-Your second task is to count the number of cows with at least one neighbouring cow. Cows are considered neighbours if they are next to each other in the cardinal directions, but not the diagonals.
+Task 2: Neighbor Cows (8 points)
+Your second task is to count the number of cows with at least one neighboring cow. Cows are considered neighbors if they are next to each other in the cardinal directions, but not the diagonals.
 
 Example
-In this 3 by 3 field, there are 4 cows with neighbours. There are 2 cows with neighbours on row y=0, and also 2 cows with neighbours in column x=2.
+In this 3 by 3 field, there are 4 cows with neighbors. There are 2 cows with neighbors on row y=0, and also 2 cows with neighbors in column x=2.
 
 API Description
 The following data is available for you to access through the API provided. Details about the API functions and the data they provide can be found under the API tab.
@@ -429,7 +429,7 @@ module.exports = class Solution extends SolutionInterface {
   }
 
   /**
-   * Task 2: Return the number of cows with neighbours.
+   * Task 2: Return the number of cows with neighbors.
    *
    *
    * @return {number (integer)}
@@ -484,7 +484,7 @@ super();
 
 /\*\*
 
-- Task 2: Return the number of cows with neighbours.
+- Task 2: Return the number of cows with neighbors.
 -
 -
 - @return {number (integer)}

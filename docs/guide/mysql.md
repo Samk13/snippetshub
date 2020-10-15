@@ -245,7 +245,7 @@ $tasks = $query->selectAll('todos', 'Task');
 ```
 
 ```php
-// Task classe
+// Task class
 <?php
 class Task
 {

@@ -8,8 +8,8 @@ name spaces are like folders
 oif you wanna use one class under name space you should write the name space before the class name,
 `$useYouClass = new NameSpace\classname;`
 
-you can creat as much subnamespaces as you want
-if the namspace get long you can use the word `use`
+you can create as much sub namespaces as you want
+if the namespace get long you can use the word `use`
 
 ```php
 // item.php
@@ -31,16 +31,16 @@ $obj = new Item;
 var_dump($obj);
 ```
 
-when you use the word `use` itäs like creating an alias, you can use the class name directelly
+when you use the word `use` it's like creating an alias, you can use the class name directly
 
-prefixing a class by `\` means that ignor the name space the class is in and use the global namespace
+prefixing a class by `\` means that ignore the name space the class is in and use the global namespace
 
-you can combine multiple use keyu words by seperating acery name space by ,
+you can combine multiple use key words by separating every name space by ,
 
 `use NameSpace1, NameSpace2, NameSpace4 as bla;`
-it's recommended not to do so thaugh!
+it's recommended not to do so though!
 
-# auto load your requiered classes
+# auto load your required classes
 
 if your file name match your class name you can auto import all your required classes
 by running this function
@@ -52,8 +52,8 @@ spl_autoload_register(function($class){
 });
 ```
 
-that's why it's importany to match the name of the class and file name .
-if you match the folder and file name structure it will work perfectelly
+that's why it's important to match the name of the class and file name .
+if you match the folder and file name structure it will work perfectly
 like this :
 
 ```php
@@ -114,11 +114,11 @@ echo $achievement->qualifier('usersss');
 
 when you add `abstract` to a class you do couple of things:
 
-- you remove the ability to instantiate that class directelly how ever unlike the `interface`
-  abstract can still include any behaviour or functionality if you need to, that's why we say it's template of sorts.
+- you remove the ability to instantiate that class directly how ever unlike the `interface`
+  abstract can still include any behavior or functionality if you need to, that's why we say it's template of sorts.
 
-- you can also declare abstract methods, these methodes you can not implement them directelly
-  it needs specefics from the subclass,
+- you can also declare abstract methods, these methods you can not implement them directly
+  it needs specific from the subclass,
 
   example on this abstract the [template method pattern](https://en.wikipedia.org/wiki/Template_method_pattern)
 
@@ -190,13 +190,13 @@ $game = new Mario();
 $game->play();
 ```
 
-## HandChakes and interfaces
+## HandShakes and interfaces
 
 ```php
 <?php
 
-// interface it's like class without behaviour
-// basically it will gorce function that implement it to have certain functions that is required in the interface
+// interface it's like class without behavior
+// basically it will force function that you have to implement it to have certain functionality that is required
 interface NewsLetter
 {
     // it's not even allowed to gave a body for the functions
@@ -366,3 +366,130 @@ function pin(Coordinates $coordinates)
 
 pin((new Coordinates(12, 123412)));
 ```
+
+## PHP create Router
+
+```php
+// router.php
+<?php
+
+class Router
+{
+    protected $routes = [];
+
+    // if  is👇 static
+
+    public static function load($file)
+    {
+        // you can use  👇 static or self referring to the class name Router , sam as saying new Router
+        $router = new static;
+        require $file;
+    // you can't 👇  use $this because static is not creating an instance of the class so we return $router!
+        return $router;
+    }
+
+    public function define($routes)
+    {
+        $this->routes = $routes;
+    }
+
+    public function direct($uri)
+    {
+        if(array_key_exists($uri, $this->routes)){
+            return $this->routes[$uri];
+        };
+
+        throw new Exception("404! WTF is this route ! ");
+    }
+}
+
+
+// routes.php
+<?php
+
+$router->define(
+    [
+        '' => 'controllers/index.php',
+        'about' => 'controllers/about.php',
+        'contact' => 'controllers/contact.php',
+        'about/culture' => 'controllers/culture.php',
+    ]
+);
+
+// Request.php
+
+<?php
+
+class Request
+{
+    public static function uri (){
+        return trim($_SERVER['REQUEST_URI'], '/');
+    }
+}
+
+
+// index.php
+<?php
+
+$query = require "core/bootstrap.php";
+
+// 👇 you can force php to go through this by the word require
+ require Router::load('routes.php')->direct(Request::uri());
+ // this '::' ☝ means that you calling a static function that is not an instance of the class
+
+// controller/index.php
+<?php
+
+$tasks = $app['database']->selectAll('todos', 'Task');
+
+require 'views/index.view.php';
+
+
+// bootstrap.php
+
+<?php
+
+$app = [];
+
+require  'core/router/router.php';
+require  'core/database/Connections.php';
+require  'core/database/QueryBuilder.php';
+require  'core/database/Request.php';
+
+$app['config'] = require "./config.php";
+
+$app['database'] = new QueryBuilder(
+    Connection::make($app['config']['database'])
+);
+```
+
+## Composer Autoloading
+
+It good habit to get into it, rather then require all your files,
+to start with this :
+
+- make sure composer is installed
+- create `composer.json` on the App entry level
+
+```json¨
+// composer.json
+
+{
+  "autoload": {
+    "classmap": ["./"]
+  }
+}
+```
+
+- then run `composer install`
+
+- you will notice that there will be a new folder `vendor` has been created.
+
+- require the generated file on your entry level index of your app
+
+```php
+<?php
+require 'vendor/autoload.php';
+```
+
+now you can delete all your required files, you don't need theme.

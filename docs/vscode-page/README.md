@@ -1,3 +1,3 @@
 # VScode
 
-## I will add usfull stuff for cs code here
+## I will add useful stuff for cs code here

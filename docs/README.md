@@ -5,11 +5,11 @@ tagline: save your time by contributing your solution
 actionText: Read more →
 actionLink: /guide/
 features:
-- title: if you get stuck
-  details: you can write about it here and how you solve it
-- title: usful information for everyone
-  details: no matter what is your level, you will find somthing usful for you here.
-- title: Save time
-  details: by contributing what you ve been stuck on and how you solve it your future self will thank you to save your time as much as other will do
+  - title: if you get stuck
+    details: you can write about it here and how you solve it
+  - title: useful information for everyone
+    details: no matter what is your level, you will find something useful for you here.
+  - title: Save time
+    details: by contributing what you ve been stuck on and how you solve it your future self will thank you to save your time as much as other will do
 footer: Made by Sam Arbid with ❤️
 ---

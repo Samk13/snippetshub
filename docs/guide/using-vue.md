@@ -273,7 +273,7 @@ script:
   - touch .nojekyll
 ```
 
-you can cd into a folder using travis by adding the `- cd <YOUR_PATH>`, and creating new file `- touch <FILE_NAME>`like you do in the termenial basically
+you can cd into a folder using travis by adding the `- cd <YOUR_PATH>`, and creating new file `- touch <FILE_NAME>`like you do in the terminal basically
 
 ## Travis
 
@@ -311,7 +311,7 @@ deploy:
 ## Dark mood in vue press
 
 I am using the work in progress plugin now `vuepress-theme-default-vue-a11y`
-Yes I know that it make things a bit slower and make Axe isses in the console, but it's fine for now.
+Yes I know that it make things a bit slower and make Axe issues in the console, but it's fine for now.
 
 ## cross site cookies
 

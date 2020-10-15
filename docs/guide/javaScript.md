@@ -1,4 +1,4 @@
-# javaScript usful functions
+# javaScript useful functions
 
 ## print odd numbers
 

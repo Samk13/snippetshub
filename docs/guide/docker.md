@@ -16,10 +16,10 @@ COPY . .
 RUN yarn install --production
 CMD ["node", "src/index.js"]
 ```
+
 Please check that the file Dockerfile has no file extension like .txt. Some editors may append this file extension automatically and this would result in an error in the next step.
 
 If you haven't already done so, open a terminal and go to the app directory with the Dockerfile. Now build the container image using the docker build command.
-
 
 docker build -t getting-started .
 This command used the Dockerfile to build a new container image. You might have noticed that a lot of "layers" were downloaded. This is because we instructed the builder that we wanted to start from the node:12-alpine image. But, since we didn't have that on our machine, that image needed to be downloaded.
@@ -35,26 +35,21 @@ Now that we have an image, let's run the application! To do so, we will use the 
 
 Start your container using the docker run command and specify the name of the image we just created:
 
-
 `docker run -dp 3000:3000 getting-started`
 Remember the `-d` and `-p` flags? We're running the new container in "detached" mode (in the background) and creating a mapping between the host's port 3000 to the container's port 3000. Without the port mapping, we wouldn't be able to access the application.
 
 After a few seconds, open your web browser to `http://localhost:3000`. You should see our app!
 
-emoving a container using the CLI¶
+moving a container using the CLI¶
 Get the ID of the container by using the docker ps command.
-
 
 `docker ps`
 Use the docker stop command to stop the container.
 
-
 > Swap out `<the-container-id>` with the ID from docker ps
-
 
 `docker stop <the-container-id>`
 Once the container has stopped, you can remove it by using the docker rm command.
-
 
 `docker rm <the-container-id>`
 :::tip Pro tip
@@ -79,10 +74,8 @@ Login to the Docker Hub using the command `docker login -u YOUR-USER-NAME`.
 
 Use the docker tag command to give the getting-started image a new name. Be sure to swap out YOUR-USER-NAME with your Docker ID.
 
-
 `docker tag getting-started YOUR-USER-NAME/getting-started`
-Now try your push command again. If you're copying the value from Docker Hub, you can drop the tagname portion, as we didn't add a tag to the image name. If you don't specify a tag, Docker will use a tag called latest.
-
+Now try your push command again. If you're copying the value from Docker Hub, you can drop the tag name portion, as we didn't add a tag to the image name. If you don't specify a tag, Docker will use a tag called latest.
 
 `docker push YOUR-USER-NAME/getting-started`
 
@@ -94,7 +87,7 @@ first go to [hub.docker](https://hub.docker.com/_/python)
 
 make new folder and create `Dockerfile`
 
-``` docker
+```docker
 FROM python:3
 
 WORKDIR /usr/src/app

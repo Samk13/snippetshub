@@ -2,6 +2,20 @@
 
 [PHP documentations](https://www.php.net/docs.php)
 
+# Strings type
+
+```php
+$single_quotes = 'this type of string is better performance then double quotes'
+$double_quotes =  " you can put a variable like {$var}s so you let php now that the name is ended"
+$name = "Sam";
+$html = <<<EOT
+<h2 class="bg-green-500">
+welcome $name
+you can write multiple lines with <<<EOT <---> EOT;
+ </h2>
+EOT;
+```
+
 # String functions:
 
 [PHP from free code camp tut](https://www.youtube.com/watch?v=OK_JCtrrv-c&ab_channel=freeCodeCamp.org)
@@ -63,7 +77,7 @@ echo 12 % 2; // 0
 
 ```
 
-you can specify the order of opperations by addig ():
+you can specify the order of operations by adding ():
 
 ```php
 echo 2+2*2;  //6
@@ -89,13 +103,13 @@ echo floor( 3.38247); // 3
 
 ## Getting user input
 
-using form is the middel man between php and html
+using form is the middle man between php and html
 
 in the form:
 action = the name of php page that will handle the form data
 method = the type of data handling should apply on the data get put post ...
 
-to handle form input in php there is special cariable start with \$\_
+to handle form input in php there is special variable start with \$\_
 
 $_GET: not fot secure data data will be shown in the URL
 $\_POST : more secure and data will not show in the URL
@@ -125,7 +139,7 @@ $\_POST : more secure and data will not show in the URL
 
 # Arrays in PHP:
 
-We creat an array like this :
+We create an array like this :
 
 ```php
 $array_of_freinds = array("sam","samFreind1","samFreind3","samFreind4",);
@@ -354,12 +368,96 @@ you can preserve the formatting by echo out `<pre> echo "code" </pre>`
 You can make function to display formatted array like:
 
 ```php
-function logarr ($val)
-{
-    echo "<pre>";
-    var_dump($val);
-    echo "</pre>";
+function dd($data){¨
+// if you use tailwindcss
+    echo '<div class="p-5 m-5 rounded-lg text-left font-mono text-lg bg-gray-800 text-white">';
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    echo '</div>';
 }
+```
+
+## Array Filtering
+
+```php
+
+// create a class Post
+class Post
+{
+    public $title;
+    public $published;
+
+    public function __construct($title, $published)
+    {
+        $this->title = $title;
+        $this->published = $published;
+    }
+}
+
+// create array from the class we create
+$posts = [
+    new Post('My Post is Lorem ipsum dolor ectetur adipisicing elit', true),
+    new Post('My Post is 2 Dignissimos explicabo voluptas tempore veli', true),
+    new Post('false Post is 3 t atque non fuga deleniti nostrum placeat expedita, is', false),
+    new Post('My Post is 4 te aliais enim praesentium repellat corporis?', true),
+    new Post('false Post is 5  Quam, veritatis voluptatibus consectetur velit quaera', false),
+    new Post('My Post is 6 ipsum dolor sit amet consectetur adipisicing elit. ', true),
+    new Post('My Post is 7 sandae quis suscipit voluptatibus incidunt dolor', true),
+];
+
+// filter array
+
+$unpublished = array_filter($posts, function ($post){
+    return !$post->published;
+});
+
+dd($unpublished);
+
+// result
+// Array
+// (
+//     [2] => Post Object
+//         (
+//             [title] => false Post is 3 t atque non fuga deleniti nostrum placeat expedita, is
+//             [published] =>
+//         )
+
+//     [4] => Post Object
+//         (
+//             [title] => false Post is 5  Quam, veritatis voluptatibus consectetur velit quaera
+//             [published] =>
+//         )
+
+// )
+```
+
+## Array map
+
+One of the down sides of PHP is inconsistency, like here in this example:
+
+array_filter(\$yourArray, funtion(){});
+
+array_map(funtion(){},\$yourArray);
+
+this you could pass by function wrappers around it.
+
+````php
+//  you can take the third argument to act as👇 key for the array
+$authors = array_column($posts, 'author', 'title');
+// extract array value that you    👆 specify here
+
+// result
+Array
+// (                    title  👇                           author👇
+//     [My Post is Lorem ipsum dolor ectetur adipisicing elit] => me
+//     [My Post is 2 Dignissimos explicabo voluptas tempore veli] => you
+//     [false Post is 3 t atque non fuga deleniti nostrum placeat expedita, is] => them
+//     [My Post is 4 te aliais enim praesentium repellat corporis?] => ne
+//     [false Post is 5  Quam, veritatis voluptatibus consectetur velit quaera] => him
+//     [My Post is 6 ipsum dolor sit amet consectetur adipisicing elit. ] => her
+//     [My Post is 7 sandae quis suscipit voluptatibus incidunt dolor] => theme
+// )
 ```
 
 # Functions in PHP
@@ -704,3 +802,4 @@ Useful if you are accepting data that might be from a language like Javascript t
 ucwords($name); // hello world => Hello World
 
 ```
+````
