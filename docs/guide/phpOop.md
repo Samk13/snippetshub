@@ -473,7 +473,6 @@ to start with this :
 
 ```json¨
 // composer.json
-
 {
   "autoload": {
     "classmap": ["./"]
@@ -493,3 +492,24 @@ require 'vendor/autoload.php';
 ```
 
 now you can delete all your required files, you don't need theme.
+
+## Composer out of memory
+
+if you get memory limit messeage while installing a package :
+
+```zsh
+$ composer require laravel/nexmo-notification-channel
+
+
+Fatal error: Allowed memory size of 1610612736 bytes exhausted (tried to allocate 327680 bytes) in phar://C:/ProgramData/ComposerSetup/bin/composer.phar/src/Composer/DependencyResolver/Decisions.php on line 196
+
+Check https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors for more info on how to handle out of memory errors.
+```
+
+### Solution
+
+prefix the command with `COMPOSER_MEMORY_LIMIT=-1` so you don't need to modify the PHP ini file
+
+```zsh
+ COMPOSER_MEMORY_LIMIT=-1 composer require laravel/nexmo-notification-channel
+```

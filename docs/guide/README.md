@@ -5,9 +5,9 @@
 
 - 👨‍💻 All of my projects are available at [https://github.com/Samk13](https://github.com/Samk13)
 
-- 🌱 I’m currently learning **Python**
+- 🌱 I’m currently learning **Docker**
 
-- 💬 Ask me about **Vue, react and laravel**
+- 💬 Ask me about **Vue, React and Laravel**
 
 - 📫 How to reach me **samarbid13@gmail.com**
 

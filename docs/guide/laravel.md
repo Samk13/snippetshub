@@ -400,6 +400,371 @@ the previous example works fine for small projects if you wanna hard code the ro
 you can do this:
 
 ```php
+// web.php                                                                    👇 named route
+Route::get('/project/{project}',[ProjectsController::class, 'show'])->name('project.show');
 
+// index.blade.php
+
+    <div class="flex flex-wrap m-2">
+        @foreach ($projects as $project )
+        // You can apply it here 👇
+            <a href="{{ route('project.show', $project) }}" class="hover:shadow-lg shadow rounded-lg w-1/2 p-5 cursor-pointer">
+                <div class="text-xl font-serif">{{ $project->name }}</div>
+                <div>{{ $project->body }}</div>
+                <div>{{ $project->owner }}</div>
+                <div>{{ $project->created_at }}</div>
+            </a>
+        @endforeach
+    </div>
+```
+
+# Eloquent Relationships
+
+[see documentation](https://laravel.com/docs/master/eloquent)
+
+# Create dummy data
+
+[see Faker documentation](https://github.com/fzaninotto/Faker)
+
+```php
+App\Models\User::factory()->count(10)->create();
+```
+
+- specify certain data for certain column you can provide array like here :
+
+```bash
+ >> App\Models\Article::factory()->count(5)->create(['user_id'=>1]);
+```
+
+- Factory example
+
+```php
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Article;
+use App\Models\User;  // 👈 you first import it here
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ArticleFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Article::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'user_id' => User::factory(), // 👈  relation to User table
+            'title' => $this->faker->sentence,
+            'author' => $this->faker->sentence,
+            'body' => $this->faker->paragraph,
+        ];
+    }
+}
 
 ```
+
+If you delete the user let's say, you need all data related to this user id to be deleted or your data base will be in a bad situation for that,
+in your migration file
+
+you should add these lines :
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateArticlesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('articles', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->text('author');
+            $table->text('body');
+            $table->timestamps();
+            // when you delete the user it will delete the related data for this user
+            $table->foreign('user_id') //  👈  if you delete the user it will cascade  to all the related data and delete  it
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('articles');
+    }
+}
+
+```
+
+## Collections
+
+```php
+$article->pluck('tags')->collapse()->pluck('name')->unique();
+
+```
+
+### Dot notation:
+
+if you have a collection and you wanna pluck a collection inside this collection, if you try to do it like :
+`$art->pluck('tags.name');` with a dot only, it will not work, but if you add `*` then it's correct:
+
+```php
+// you  should    👇 add * in order to work
+$art->pluck('tags.*.name');https://www.freecodecamp.org/news/7-git-commands-you-might-not-know/?fbclid=IwAR3xkHIvTO0axfRrP3Iw2oKvHJABopbFG6CWgv3pyr-UkgTAjBy9usZS6dE
+
+ $art->pluck('tags.*.name')->collapse()->unique()->map(function($tag){return ucwords($tag);});
+
+// result :
+=> Illuminate\Support\Collection {#4316
+     all: [
+       "Laravel",
+       "Php",
+       "Javascript",
+     ],
+   }
+>>>
+```
+
+# Service Container
+
+it's exactly like it sounds like it's a container to store and retrieve services.
+
+# Sending emails
+
+in your terminal:
+
+```zsh
+php artisan make:mail MyEmail
+```
+
+With Markdown
+
+```zsh
+#      email file name 👇         👇 with markdown and where the blade file should be created
+php artisan make:mail MyEmail --markdown=emails.contact
+```
+
+you will have a template like this
+
+```php
+// views/emails/contact.blade.php 1️⃣
+
+@component('mail::message')
+# Introduction
+
+The body of your message.
+
+@component('mail::button', ['url' => ''])
+Button Text
+@endcomponent
+
+Thanks,<br>
+{{ config('app.name') }}
+@endcomponent
+
+// Http/mail/Contact.php 2️⃣
+
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class Contact extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+      //  automatically 👇 populate the markdown method
+        return $this->markdown('emails.contact');
+    }
+}
+
+```
+
+# Custom CSS for laravel Email
+
+If you wanna tweak the style of your email wish 99.99123% you will do that
+
+```zsh
+# basically copy only the tag 👇 laravel mail into the view directory
+
+php artisan vendor:publish --tag=laravel-mail
+
+>> Copied Directory [\vendor\laravel\framework\src\Illuminate\Mail\resources\views] To [\resources\views\vendor\mail]
+>> Publishing complete.
+```
+
+it will copy the CSS and HTML from vendor folder into views, and then
+
+- In the themes folder
+- Create new file name it whatever `sam.css`
+- Go to config -> mail.php
+
+```php
+
+    'markdown' => [
+      // your new   👇 file here
+        'theme' => 'sam',
+
+        'paths' => [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
+```
+
+## Eventing event listener
+
+in your cintroller lets say that when an Event happen you need to trigger a sequence of actions or events,
+Rather then writing all the code in the controller, you can split it into event and
+listeners
+
+- Create event :
+
+`php artisan make:event EventName`
+
+- List Event
+
+`php artisan event:list`
+
+After creating an event it will create a folder called events!
+
+:::tip
+All property of an event Should be public!
+:::
+
+in your controller :
+
+```php
+    public function store()
+    {
+      //  You trigger the event here
+        ProductPurchased::dispatch('productModule');
+        // or
+        // event(new ProductPurchased('toy'));
+    }
+```
+
+- Create listener
+
+```zsh
+// -e is shortcut foe event you     👇follow it by the event name
+php artisan make:listener EventName -e EventName
+```
+
+after you create the event and the listener, you should connect them together.
+there 2 ways :
+
+- manual way
+- automatic way (Not always good!)
+  we doing so by going to `Providers` folder
+
+```php
+<?php
+
+// App/Providers/EventServiceProvider.php
+
+namespace App\Providers;
+
+use App\Events\ProductPurchased;
+use App\Listeners\AwardAchievements;
+use App\Listeners\SendShareableCoupon;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
+
+class EventServiceProvider extends ServiceProvider
+{
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [
+        Registered::class => [
+            SendEmailVerificationNotification::class,
+        ],
+        //  👇 You add your events and listeners here
+        ProductPurchased::class => [
+            AwardAchievements::class,
+            SendShareableCoupon::class,
+        ]
+    ];
+
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+
+    // public function shouldDiscoverEvents()
+    // {
+    //     return true;
+    // }
+}
+
+```
+
+you have other option to connect events and listeners automatically by adding this function
+
+```php
+    public function shouldDiscoverEvents()
+    {
+        return true;
+    }
+```
+
+after adding this function you can delete the connection you did manually.
+
+Both ways are correct, the automatic way will blur the connections between the event and it's listeners and it will not be so clear unless you called `php artisan event:list` so you can see the connections, but in the first method is more clear and explicit, so you need to think about what method you should use in your production.

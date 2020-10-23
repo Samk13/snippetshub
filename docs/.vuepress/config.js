@@ -81,6 +81,8 @@ module.exports = {
             "phpOop",
             "mysql",
             "laravel",
+            "git",
+            "wsl",
           ],
         },
       ],
