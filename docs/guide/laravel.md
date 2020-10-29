@@ -768,3 +768,31 @@ you have other option to connect events and listeners automatically by adding th
 after adding this function you can delete the connection you did manually.
 
 Both ways are correct, the automatic way will blur the connections between the event and it's listeners and it will not be so clear unless you called `php artisan event:list` so you can see the connections, but in the first method is more clear and explicit, so you need to think about what method you should use in your production.
+
+#
+
+in the modal you can replace this function, by adding name into the route it self.
+
+```php
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+```
+
+so you can clean it up with one word
+
+if you wanna access the user by something other then the id then you can clear this out in the route directly
+
+```php
+//                             👇
+  Route::get('/profiles/{user:name}', 'ProfilesController@show')->name('profile');
+```
+
+## CSS Loop last
+
+```php
+//  you can do this so the last loop will not have the effect
+
+<div class="flex p-4 {{ $loop->last ? '':'border-b border-gray-400' }}"></div>
+```

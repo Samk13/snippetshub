@@ -83,6 +83,7 @@ module.exports = {
             "laravel",
             "git",
             "wsl",
+            "interesting",
           ],
         },
       ],

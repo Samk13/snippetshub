@@ -8,6 +8,12 @@
 sudo apt update && sudo apt dist-upgrade
 ```
 
+## update everything
+
+```sh
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
+```
+
 `$ sudo apt-get update`
 
 ## What is Apt-get upgrade
@@ -55,3 +61,76 @@ The WSL Distro is now terminated.
 
 you can install all packages needed through brew like in MAC ! 😎💃
 [brew install linux](https://formulae.brew.sh/formula-linux/)
+
+## show wsl running
+
+```sh
+wsl --list --running
+```
+
+## terminate wsl running process
+
+```sh
+#            👇 replace it wih the running distro name
+--terminate Ubuntu
+```
+
+following these steps to make MySQL work: inspired by this repo
+
+1- Upgrade the Repositories
+
+```sh
+sudo apt update
+sudo apt upgrade
+```
+
+2- Install MySQL 5.7
+
+```sh
+sudo apt install mysql-server
+```
+
+3- Start service
+
+```sh
+sudo service mysql start
+```
+
+4- Setup new user account and grant privileges
+
+sudo mysql
+5- Check the authentication method/plugin that all your MySQL accounts are currently using
+
+```sh
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+```
+
+6- Create a new user within the shell and grant privileges
+
+```sh
+CREATE USER 'YOUR*USER_NAME_HERE'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD'; GRANT ALL PRIVILEGES ON * . \_ TO 'newuser'@'localhost'; FLUSH PRIVILEGES;
+```
+
+7- Exit shell and return with passward 'password':
+
+```sh
+mysql -u yourusername -p
+```
+
+your db password
+
+```sh
+mysql> CREATE DATABASE your_db_name;
+```
+
+make sure you created by running :
+
+```sh
+mysql> database list; and exit mysql
+```
+
+8- make sure your password and user in your .env file are matching with your DB
+
+9- Finally run php artisan migrate
+
+should now migrate successfully.
