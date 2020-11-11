@@ -25,3 +25,7 @@ let x = () =>
 # public APIs
 
 [this repo contain many](https://github.com/public-apis/public-apis)
+
+## Object manipulation
+
+(Object menupilation)[https://medium.com/infancyit/javascript-object-manipulation-5d1145cf06ef]

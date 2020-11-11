@@ -796,3 +796,84 @@ if you wanna access the user by something other then the id then you can clear t
 
 <div class="flex p-4 {{ $loop->last ? '':'border-b border-gray-400' }}"></div>
 ```
+
+## Check if the User is authorized
+
+you can do it in controller like :
+
+[custom created function at 02:07](https://laracasts.com/series/laravel-6-from-scratch/episodes/63?autoplay=true)
+
+```php
+
+// junior way
+    public function edit(User $user)
+    {
+      //                 👇 Custon created function
+      if($user->isNot(current_User())){
+        abort(404);
+      }
+
+    // MID LEVEL
+        abort_if($user->isNot(current_User()), 404);
+
+    //  senior level
+    🎃👇
+
+        return view('profiles.edit', compact('user'));
+    }
+```
+
+[🎃 => time: 04:54](https://laracasts.com/series/laravel-6-from-scratch/episodes/63?autoplay=true)
+
+## Form upload files
+
+whenever you want to upload files with your form you should add
+
+```php
+enctype="multipart/form-data"
+
+so it should be like :
+ <form method="POST" action="{{ $user->path() }}" enctype="multipart/form-data">
+  <input type="file">
+ </form>
+```
+
+to solve the path
+
+```php
+//  add this in config/fileSystems.php
+
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+        public_path('avatars') => storage_path('app/public/avatars'),
+    ],
+
+    // and then run
+    php artisan storage:link
+
+then in App/User.php
+
+    public function getAvatarAttribute($value)
+    {
+        return asset($value ?:'/assets/svg/robot.svg');
+    }
+```
+
+[learn more](https://laracasts.com/series/laravel-6-from-scratch/episodes/64?autoplay=true)
+
+## hash passwords
+
+[01:00](https://laracasts.com/series/laravel-6-from-scratch/episodes/65?autoplay=true)
+
+set this in the controller of the form password field, the password will be processed here before it go to the DB
+
+```php
+  public function setPasswordAttribute($value)
+  {
+      $this->attributes['password'] = bcrypt($value);
+  }
+```
+
+## GITHUB project file:
+
+[samstwitter](https://github.com/Samk13/samstwitter)
