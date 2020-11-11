@@ -28,4 +28,4 @@ let x = () =>
 
 ## Object manipulation
 
-(Object menupilation)[https://medium.com/infancyit/javascript-object-manipulation-5d1145cf06ef]
+[Object menupilation](https://medium.com/infancyit/javascript-object-manipulation-5d1145cf06ef)
