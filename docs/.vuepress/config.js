@@ -85,6 +85,7 @@ module.exports = {
             "wsl",
             "interesting",
             "tdd",
+            "algorithmicProblems",
           ],
         },
       ],
