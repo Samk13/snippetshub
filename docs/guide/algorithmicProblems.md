@@ -157,6 +157,27 @@ const howSum = (targetSum, numbers, memo = {}) => {
 };
 ```
 
+## how sum tabulation solution
+
+```js
+const howSum = (targetSum, numbers) => {
+  const table = Array(targetSum + 1).fill(null);
+  table[0] = [];
+  for (let i = 0; i <= targetSum; i++) {
+    if (table[i] !== null) {
+      for (let num of numbers) {
+        table[i + num] = [...table[i], num];
+      }
+    }
+  }
+  return table[targetSum];
+};
+
+console.log(howSum(7, [5, 3, 4]));
+console.log(howSum(7, [2, 4]));
+console.log(howSum(400, [7, 14, 200]));
+```
+
 # Can construct
 
 ## Best sum
@@ -192,6 +213,32 @@ bestSum = (targetSum, numbers, memo = {}) => {
   memo[targetSum] = shortestCombination;
   return shortestCombination;
 };
+```
+
+## Best Sum tabulation solution
+
+```js
+const BestSum = (targetSum, numbers) => {
+  const table = Array(targetSum + 1).fill(null);
+  table[0] = [];
+  for (let i = 0; i <= targetSum; i++) {
+    if (table[i] !== null) {
+      for (let num of numbers) {
+        const combination = [...table[i], num];
+        // if this current combination is shorter that what is already stores
+        if (!table[i + num] || table[i + num].length > combination.length) {
+          table[i + num] = combination;
+        }
+      }
+    }
+  }
+  return table[targetSum];
+};
+
+console.log(BestSum(7, [5, 3, 4]));
+console.log(BestSum(7, [2, 4]));
+console.log(BestSum(400, [7, 14, 200]));
+console.log(BestSum(400, [25, 1, 2, 50]));
 ```
 
 ## Queue Data Structure
@@ -325,4 +372,35 @@ class Snake {
 
 const game = new Snake();
 game.play();
+```
+
+## can Construct
+
+Write a function `canConstruct(target, wordBank)` that accepts a target string and an array of strings.
+
+The function should return a boolean indicating whether or not the `target` can be constructed by concatenating elements of the `wordBank` array.
+
+You can reuse elements of`wordBank` as many times as needed.
+
+```js
+const CanConstruct = (target, wordBank) => {
+  const table = Array(target.length + 1).fill(false);
+  table[0] = true;
+  for (let i = 0; i <= target.length; i++) {
+    if (table[i] !== false) {
+      for (let word of wordBank) {
+        // if  the word match the character start at position i
+        if (target.slice(i, i + word.length) === word) {
+          table[i + word.length] = true;
+        }
+      }
+    }
+  }
+  return table[target.length];
+};
+
+console.log(CanConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])); // -> true
+console.log(
+  CanConstruct("skateboarde", ["bo", "rd", "ate", "t", "ska", "sk", "boar"])
+); // -> false
 ```
